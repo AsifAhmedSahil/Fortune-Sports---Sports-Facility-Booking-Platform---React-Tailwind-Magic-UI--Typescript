@@ -30,7 +30,7 @@ export const Navbar = () => {
           <div className="border border-white border-opacity-30 h-10 w-10 inline-flex justify-center items-center rounded-sm sm:hidden">
             <CiMenuBurger className="text-white" size={20} />
           </div>
-          <nav className=" gap-6 items-center hidden sm:flex">
+          <nav className=" gap-8 items-center hidden sm:flex">
             <a
               href="/about"
               className="text-opacity-60 text-white hover:text-opacity-100  transition"
