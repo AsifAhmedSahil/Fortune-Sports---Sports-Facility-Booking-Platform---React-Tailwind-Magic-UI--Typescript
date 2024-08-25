@@ -80,10 +80,10 @@ const ReviewCard = ({
 
 export function Testimonial() {
   return (
-    <div >
-        <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden   bg-background md:shadow-xl bg-black text-white ">
+    <div className="bg-black">
+        <div className="relative flex h-[900px] w-full flex-col items-center justify-center overflow-hidden   bg-background md:shadow-xl  text-white bg-black ">
       <div>
-        <h1 className="text-center font-bold text-3xl md:text-5xl lg:text-6xl sm:text-6xl tracking-tighter mt-16">
+        <h1 className="text-center font-bold text-3xl md:text-5xl lg:text-6xl sm:text-6xl tracking-tighter ">
           "Voices of Satisfaction"
         </h1>
         <p className="max-w-4xl mx-auto text-center text-sm lg:text-xl pt-12 mb-12">

@@ -16,7 +16,7 @@ const Banner = () => {
             className="inline-flex gap-3 border py-1 px-2 border-white/30 rounded-lg"
           >
             <span className="bg-[linear-gradient(to_right,#F87AFF,#FB93D0,#FFDD99,#C3F0B2,#2FD8FE)] text-transparent bg-clip-text [-webkit-background-clip:text]">
-              🎉 | Introducing Fortune Sports
+              🎉 | Introducing Fortune Sports Arena
             </span>
             <span className="inline-flex gap-1 items-center">
               <span>Read more </span>
