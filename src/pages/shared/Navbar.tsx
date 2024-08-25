@@ -96,12 +96,15 @@ export const Navbar = () => {
             </a>
           </nav>
           <div className="hidden lg:flex gap-4 ">
+            <Link to={"/login"} >
             <button
               type="button"
               className="text-black bg-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             >
               Login
             </button>
+            </Link>
+            <Link to={"/signup"}>
             <button
               type="button"
               className="text-white bg-gradient-to-br from-purple-900 to-purple-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 flex justify-center items-center gap-2"
@@ -111,6 +114,7 @@ export const Navbar = () => {
                 <FaLongArrowAltRight />
               </span>
             </button>
+            </Link>
           </div>
         </div>
       </div>
