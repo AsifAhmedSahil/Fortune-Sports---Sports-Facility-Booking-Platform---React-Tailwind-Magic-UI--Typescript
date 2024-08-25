@@ -2,23 +2,47 @@
 import Lottie from "lottie-react"
 import loginGif from "@/Animation - 1724607496135.json"
 import { Link } from "react-router-dom"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { RootState } from "@/redux/store"
+import { setEmail, setPassword } from "@/redux/features/loginSlice"
+import { useLoginMutation } from "@/redux/api/auth/authApi"
+
 
 
 const Login = () => {
+
+    const dispatch = useAppDispatch()
+    const {email,password} = useAppSelector((state:RootState)=>state.login)
+
+    const [login,{data}] = useLoginMutation()
+    
+
+    const handleSubmit =async (e:React.FormEvent) =>{
+        e.preventDefault()
+           const {data} =  await login({email,password})
+           console.log(data)
+        
+
+
+    }
+
   return (
     <div className="flex h-screen ">
     {/* Login Form Section */}
     {/* <BorderBeamDemo/> */}
-    <div className="w-full md:w-1/2 bg-black flex items-center justify-center p-8 ">
+    <div  className="w-full md:w-1/2 bg-black flex items-center justify-center p-8 ">
       <div className="w-full max-w-md">
         <h2 className="text-3xl font-bold mb-6 text-white">Login to Your Account</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-white">Email</label>
             <input
               type="email"
               id="email"
               name="email"
+              value={email}
+              onChange={(e)=>dispatch(setEmail(e.target.value))}
+              
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
             />
@@ -29,6 +53,8 @@ const Login = () => {
               type="password"
               id="password"
               name="password"
+              value={password}
+              onChange={(e)=>dispatch(setPassword(e.target.value))}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
             />
