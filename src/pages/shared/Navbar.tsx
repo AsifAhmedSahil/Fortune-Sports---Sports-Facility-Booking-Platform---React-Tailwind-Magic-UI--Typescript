@@ -21,7 +21,7 @@ export const Navbar = () => {
                 />
               </Link>
             </div>
-            <div className="text-white text-2xl font-bold">
+            <div className="text-white text-sm lg:text-2xl font-bold">
               <Link to={"/"}>
                 <GradualSpacingDemo />
               </Link>
@@ -57,7 +57,7 @@ export const Navbar = () => {
             </a>
             
           </nav>
-          <div className="flex gap-4">
+          <div className="flex gap-4 hidden">
             <button
               type="button"
               className="text-black bg-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
