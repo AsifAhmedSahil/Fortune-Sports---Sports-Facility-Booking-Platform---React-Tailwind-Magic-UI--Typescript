@@ -1,10 +1,12 @@
 import { GlobeDemo } from "@/components/GlobeDemo";
+import ScrollUpButton from "../Components/ScrollUpButton";
 
 
 
 const Contact = () => {
     return (
         <div className=" px-4 py-12 bg-black w-full">
+          <ScrollUpButton/>
           <GlobeDemo/>
           
           <div className="bg-black text-white bg-gradient-to-b from-black to-[#5D2CA8] py-24 sm:py-[72px]">

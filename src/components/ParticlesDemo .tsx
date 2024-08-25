@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 
 import Particles from "@/components/magicui/particles";
 import { OrbitingCirclesDemo } from "./OrbitingCirclesDemo";
+import ScrollUpButton from "@/pages/Components/ScrollUpButton";
 
 const teamMembers = [
   {
@@ -40,6 +41,7 @@ const ParticlesDemo = () => {
 
   return (
     <div className="relative flex h-full w-full flex-col  overflow-hidden  bg-background md:shadow-xl">
+      <ScrollUpButton/>
       <section className="py-16 bg-black text-white">
         <div className="container mx-auto px-4">
           {/* Mission Statement */}
