@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks"
 import { setAddress, setEmail, setName, setPassword, setPhone } from "@/redux/features/registerSlice"
 import { RootState } from "@/redux/store"
 import { useSignUpMutation } from "@/redux/api/auth/authApi"
+import { toast } from "sonner"
 
 
 const Register = () => {
@@ -20,6 +21,7 @@ const Register = () => {
             name,email,password,phone,address
         )
         const user = await signup({name,email,password,phone,address})
+        toast.success("Registration successfully",{duration:2000})
         console.log(user)
 
     }
