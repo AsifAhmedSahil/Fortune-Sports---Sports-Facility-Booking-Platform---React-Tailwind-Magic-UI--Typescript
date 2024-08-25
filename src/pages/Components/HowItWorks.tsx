@@ -1,46 +1,68 @@
-
-
 const HowItWorks = () => {
   return (
-    <section className="relative py-16 bg-gray-100">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8">How It Works</h2>
-        <div className="relative">
-          {/* Road line */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-full h-1 bg-gray-300"></div>
-          </div>
-          {/* Steps */}
-          <div className="relative flex flex-col items-center lg:flex-row lg:justify-between lg:space-x-8">
-            {/* Step 1 */}
-            <div className="flex flex-col items-center w-full lg:w-1/3 mb-8 lg:mb-0">
-              <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">1</div>
-              <div className="bg-white shadow-md rounded-lg p-6 w-64 text-center">
-                <h3 className="text-xl font-semibold mb-4">Step 1</h3>
-                <p className="text-gray-700">Sign up and create an account with Fortune Sports.</p>
-              </div>
-            </div>
-            {/* Step 2 */}
-            <div className="flex flex-col items-center w-full lg:w-1/3 mb-8 lg:mb-0">
-              <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">2</div>
-              <div className="bg-white shadow-md rounded-lg p-6 w-64 text-center">
-                <h3 className="text-xl font-semibold mb-4">Step 2</h3>
-                <p className="text-gray-700">Browse available sports facilities and select your preferred one.</p>
-              </div>
-            </div>
-            {/* Step 3 */}
-            <div className="flex flex-col items-center w-full lg:w-1/3 mb-8 lg:mb-0">
-              <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-4">3</div>
-              <div className="bg-white shadow-md rounded-lg p-6 w-64 text-center">
-                <h3 className="text-xl font-semibold mb-4">Step 3</h3>
-                <p className="text-gray-700">Book your facility and enjoy your game!</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="bg-black text-white bg-gradient-to-b from-black to-[#5D2CA8] py-24 sm:py-[72px]">
+      <div className="max-w-7xl mx-auto p-12 ">
+        <h1 className="text-center font-bold text-3xl md:text-5xl lg:text-6xl sm:text-6xl tracking-tighter mt-12 mb-16">
+          How It Works
+        </h1>
+        <ol className="relative border-s border-gray-200 dark:border-gray-700">
+          <li className="mb-10 ms-6">
+            <span className="absolute flex items-center justify-center w-12 h-12 bg-black rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
+              1
+            </span>
+            
+            <time className="block mb-2 ml-10 text-xl lg:text-2xl font-semibold leading-none text-white dark:text-white">
+            Explore Sports Facilities
+            </time>
+            <p className="mb-4 ml-10 text-base font-normal text-white dark:text-white">
+            Browse our extensive list of sports facilities including turfs, courts, and arenas. Use our search and filter options to find the perfect venue for your game, whether it’s football, basketball, tennis, or any other sport.
+            </p>
+            
+          </li>
+          <li className="mb-10 ms-6">
+            <span className="absolute flex items-center justify-center w-12 h-12 bg-black rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
+              2
+            </span>
+            
+            <time className="block mb-2 ml-10 text-xl lg:text-2xl font-semibold leading-none text-white dark:text-white">
+            Choose Your Turf
+            </time>
+            <p className="mb-4 ml-10 text-base font-normal text-white dark:text-white">
+            Browse our extensive list of sports facilities including turfs, courts, and arenas. Use our search and filter options to find the perfect venue for your game, whether it’s football, basketball, tennis, or any other sport.
+            </p>
+            
+          </li>
+          <li className="mb-10 ms-6">
+            <span className="absolute flex items-center justify-center w-12 h-12 bg-black rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
+              3
+            </span>
+            
+            <time className="block mb-2 ml-10 text-xl lg:text-2xl font-semibold leading-none text-white dark:text-white">
+            Pick a Time Slot
+            </time>
+            <p className="mb-4 ml-10 text-base font-normal text-white dark:text-white">
+            Browse our extensive list of sports facilities including turfs, courts, and arenas. Use our search and filter options to find the perfect venue for your game, whether it’s football, basketball, tennis, or any other sport.
+            </p>
+            
+          </li>
+          <li className="mb-10 ms-6">
+            <span className="absolute flex items-center justify-center w-12 h-12 bg-black rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
+              4
+            </span>
+            
+            <time className="block mb-2 ml-10 text-xl lg:text-2xl font-semibold leading-none text-white dark:text-white">
+            Confirm and Pay
+            </time>
+            <p className="mb-4 ml-10 text-base font-normal text-white dark:text-white">
+            Browse our extensive list of sports facilities including turfs, courts, and arenas. Use our search and filter options to find the perfect venue for your game, whether it’s football, basketball, tennis, or any other sport.
+            </p>
+            
+          </li>
+         
+        </ol>
       </div>
-    </section>
-  )
-}
+    </div>
+  );
+};
 
-export default HowItWorks
+export default HowItWorks;

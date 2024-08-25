@@ -29,7 +29,7 @@ const featuredFacilities = [
 
 const FeaturedFacilities = () => {
   return (
-    <section className="py-12 bg-black text-white">
+    <section className="py-2 bg-black text-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl  font-semibold mb-8 text-center text-white mt-8 "><SparklesTextDemo/></h2>
         <p className="text-xl lg:text-2xl text-center text-white/70 pb-8 max-w-5xl mx-auto">Advanced sports venues offer the latest facilities, dynamic and unique environments for enhanced your performance.</p>
