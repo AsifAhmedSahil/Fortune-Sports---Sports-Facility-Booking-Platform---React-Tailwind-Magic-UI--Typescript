@@ -35,7 +35,8 @@ const pricingOptions = [
 
 const Pricing = () => {
   return (
-    <section className="py-16 rounded-lg bg-gradient-to-b from-black to-[#4c1899] text-white">
+    <div className="bg-black">
+        <section className="py-16 rounded-lg bg-gradient-to-b from-black to-[#4c1899] text-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl lg:text-5xl font-bold text-center mb-12">
           Pricing Options
@@ -82,7 +83,7 @@ const Pricing = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 w-full">
+                <button className="w-2/3 mx-auto mb-5 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 ">
                   Book Now
                 </button>
               </div>
@@ -91,6 +92,7 @@ const Pricing = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

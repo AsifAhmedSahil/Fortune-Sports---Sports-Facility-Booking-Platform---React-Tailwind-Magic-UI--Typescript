@@ -7,7 +7,7 @@ const HowItWorks = () => {
         </h1>
         <ol className="relative border-s border-gray-200 dark:border-gray-700">
           <li className="mb-10 ms-6">
-            <span className="absolute flex items-center justify-center w-12 h-12 bg-black rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
+            <span className="absolute flex items-center justify-center w-8 md:w-9 lg:w-12 h-8 md:h-9 lg:h-12 bg-black rounded-full -start-3 ring-2 md:ring-4 lg:ring-8 ring-white/50  dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
               1
             </span>
             
@@ -20,7 +20,7 @@ const HowItWorks = () => {
             
           </li>
           <li className="mb-10 ms-6">
-            <span className="absolute flex items-center justify-center w-12 h-12 bg-black rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
+            <span className="absolute flex items-center justify-center w-8 md:w-9 lg:w-12 h-8 md:h-9 lg:h-12 bg-black rounded-full -start-3 ring-2 md:ring-4 lg:ring-8 ring-white/50  dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
               2
             </span>
             
@@ -33,7 +33,7 @@ const HowItWorks = () => {
             
           </li>
           <li className="mb-10 ms-6">
-            <span className="absolute flex items-center justify-center w-12 h-12 bg-black rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
+            <span className="absolute flex items-center justify-center w-8 md:w-9 lg:w-12 h-8 md:h-9 lg:h-12 bg-black rounded-full -start-3 ring-2 md:ring-4 lg:ring-8 ring-white/50  dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
               3
             </span>
             
@@ -46,7 +46,7 @@ const HowItWorks = () => {
             
           </li>
           <li className="mb-10 ms-6">
-            <span className="absolute flex items-center justify-center w-12 h-12 bg-black rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
+            <span className="absolute flex items-center justify-center w-8 md:w-9 lg:w-12 h-8 md:h-9 lg:h-12 bg-black rounded-full -start-3 ring-2 md:ring-4 lg:ring-8 ring-white/50  dark:ring-gray-900 dark:bg-blue-900 text-xl font-bold">
               4
             </span>
             
