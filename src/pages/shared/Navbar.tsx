@@ -39,14 +39,14 @@ export const Navbar = () => {
           <div className="border border-white border-opacity-30 h-10 w-10 inline-flex justify-center items-center rounded-sm sm:hidden">
             <button onClick={toggleNavbar}>
               {mobileDrawerOpen ? (
-                <X className="text-white"/>
+                <X className="text-white" />
               ) : (
                 <CiMenuBurger className="text-white" size={20} />
               )}
             </button>
           </div>
 
-          {/* ***************************************************************** */}
+          {/* ****************************** For mobile menu *********************************** */}
           {mobileDrawerOpen && (
             <div className="fixed right-0 z-20 top-20 bg-black text-white w-full p-12 flex flex-col justify-center items-center lg:hidden">
               <ul>
@@ -66,6 +66,8 @@ export const Navbar = () => {
               </div>
             </div>
           )}
+
+          {/* ********************************Desktop menu navigation ************************************* */}
 
           <nav className=" gap-8 items-center hidden sm:flex">
             <a
