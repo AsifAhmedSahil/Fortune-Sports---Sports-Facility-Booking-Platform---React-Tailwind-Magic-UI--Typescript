@@ -2,9 +2,28 @@
 import Lottie from "lottie-react"
 import registerGif from "@/Animation - 1724608571023.json"
 import { Link } from "react-router-dom"
+import React from "react"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { setAddress, setEmail, setName, setPassword, setPhone } from "@/redux/features/registerSlice"
+import { RootState } from "@/redux/store"
+import { useSignUpMutation } from "@/redux/api/auth/authApi"
 
 
 const Register = () => {
+    const dispatch=useAppDispatch()
+    const {name,email,password,phone,address} = useAppSelector((state:RootState)=> state.register)
+    const [signup] = useSignUpMutation()
+
+    const handleSubmit =async (e:React.FormEvent) =>{
+        e.preventDefault()
+        console.log(
+            name,email,password,phone,address
+        )
+        const user = await signup({name,email,password,phone,address})
+        console.log(user)
+
+    }
+
   return (
     <div className="flex h-screen ">
     {/* Login Form Section */}
@@ -16,13 +35,15 @@ const Register = () => {
     <div className="w-full md:w-1/2 bg-black flex items-center justify-center p-8 ">
       <div className="w-full max-w-md">
         <h2 className="text-3xl font-bold mb-6 text-white">Login to Your Account</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-white">Full Name</label>
             <input
               type="text"
               id="name"
               name="name"
+              value={name}
+                onChange={(e) => dispatch(setName(e.target.value))}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
             />
@@ -33,6 +54,8 @@ const Register = () => {
               type="email"
               id="email"
               name="email"
+              value={email}
+                onChange={(e) => dispatch(setEmail(e.target.value))}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
             />
@@ -43,6 +66,8 @@ const Register = () => {
               type="password"
               id="password"
               name="password"
+              value={password}
+                onChange={(e) => dispatch(setPassword(e.target.value))}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
             />
@@ -50,9 +75,11 @@ const Register = () => {
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-white">Phone Number</label>
             <input
-              type="number"
+              type="text"
               id="phone"
               name="phone"
+              value={phone}
+                onChange={(e) => dispatch(setPhone(e.target.value))}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
             />
@@ -63,6 +90,8 @@ const Register = () => {
               type="text"
               id="address"
               name="address"
+              value={address}
+                onChange={(e) => dispatch(setAddress(e.target.value))}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
             />

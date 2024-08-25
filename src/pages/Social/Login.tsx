@@ -1,7 +1,7 @@
 // import { BorderBeamDemo } from '@/components/BorderBeamDemo'
 import Lottie from "lottie-react";
 import loginGif from "@/Animation - 1724607496135.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { setEmail, setPassword } from "@/redux/features/loginSlice";
@@ -10,6 +10,7 @@ import { jwtDecode } from "jwt-decode";
 import { setToken, setUser } from "@/redux/features/userSlice";
 
 const Login = () => {
+    const navigate = useNavigate()
   const dispatch = useAppDispatch();
   const { email, password } = useAppSelector((state: RootState) => state.login);
 
@@ -24,6 +25,7 @@ const Login = () => {
     console.log("logged in user", user);
     dispatch(setToken(token));
     dispatch(setUser(user));
+    navigate("/")
   };
 
   return (
