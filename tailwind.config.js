@@ -80,6 +80,14 @@ module.exports = {
             transform: "translateZ(0) rotate(360deg)",
           },
         },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
+        "marquee-vertical": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(calc(-100% - var(--gap)))" },
+        },
         
       },
       animation: {
@@ -87,7 +95,8 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
         slide: "slide var(--speed) ease-in-out infinite alternate",
-        
+        marquee: "marquee var(--duration) linear infinite",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
       slide: {
         to: {
