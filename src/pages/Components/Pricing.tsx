@@ -1,9 +1,9 @@
-import React from "react";
+
 import { GiShieldBash } from "react-icons/gi";
 import { IoDiamondOutline } from "react-icons/io5";
 import { FcApproval } from "react-icons/fc";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
-import { IoIosAdd } from "react-icons/io";
+
 import { ImCross } from "react-icons/im";
 
 const pricingOptions = [
