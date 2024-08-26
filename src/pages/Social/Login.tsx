@@ -25,8 +25,8 @@ const Login = () => {
     const user = jwtDecode(token);
     console.log("logged in user", user);
     toast.success("Logged in successfully",{duration:2000})
-    const bearearToken = `Bearer ${token}`
-    dispatch(setToken(bearearToken));
+    // const bearearToken = `Bearer ${token}`
+    dispatch(setToken(token));
     dispatch(setUser(user));
     navigate("/")
   };

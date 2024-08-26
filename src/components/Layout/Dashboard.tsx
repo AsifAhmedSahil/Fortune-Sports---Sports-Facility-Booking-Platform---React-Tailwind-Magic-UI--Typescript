@@ -29,7 +29,7 @@ const Dashboard = () => {
 
       <div className="bg-black flex-1">
         <div className="w-full lg:w-[70%] lg:mx-auto px-4 py-6">
-          {user?.role === "user" ? (
+          {user?.role === "admin" ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
               <NavLink
                 to="/dashboard/my-bookings"

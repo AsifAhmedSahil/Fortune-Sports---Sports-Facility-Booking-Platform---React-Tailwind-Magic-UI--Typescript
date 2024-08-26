@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import Particles from "@/components/magicui/particles";
 import { OrbitingCirclesDemo } from "./OrbitingCirclesDemo";
 import ScrollUpButton from "@/pages/Components/ScrollUpButton";
+import HistoryTimeline from "@/pages/Components/HistoryTimeline";
 
 const teamMembers = [
   {
@@ -30,6 +31,53 @@ const teamMembers = [
     photo: "https://i.ibb.co/rmvjrxZ/106021267-1.jpg", // Replace with actual image path
   },
 ];
+
+const events = [
+  {
+    heading: '2018: Platform Launch',
+    subHeading: `In 2018, we launched our platform with the core features to help
+sports enthusiasts easily book facilities online. Our initial
+focus was on providing a user-friendly interface and reliable
+booking system to streamline the sports facility management.`,
+    direction: 'left'
+  },
+  {
+    heading: '2019: Expanded Facilities',
+    subHeading: `By 2019, our platform expanded to include a variety of sports
+facilities and added new features like real-time availability
+scheduling. We aimed to accommodate more users and sports
+categories, making it easier for everyone to find and book their
+desired facilities.`,
+    direction: 'right'
+  },
+  {
+    heading: '2020: 10,000+ Active Users',
+    subHeading: `The year 2020 was a milestone for us as we reached over 10,000
+active users. This achievement showcased our platform’s
+popularity and effectiveness in connecting sports enthusiasts
+with their preferred facilities during a challenging year.`,
+    direction: 'left'
+  },
+  {
+    heading: '2021: Premium Memberships Introduced',
+    subHeading: `In 2021, we introduced premium and pro membership plans, offering
+exclusive features like advanced booking options and priority
+support. These memberships were designed to enhance the
+user experience and provide additional value to our loyal users.`,
+    direction: 'right'
+  },
+  {
+    heading: '2022: Leading Sports Booking Platform',
+    subHeading: `By 2022, our platform became the leading choice for sports facility
+bookings in the region. We continued to innovate with new
+features and partnerships, solidifying our reputation as the go-to
+solution for sports facility management and bookings.`,
+    direction: 'left'
+  }
+];
+
+
+
 
 const ParticlesDemo = () => {
   const { theme } = useTheme();
@@ -82,7 +130,7 @@ const ParticlesDemo = () => {
           </div>
 
           {/* History & Milestones */}
-        <div className="mb-12 ">
+        {/* <div className="mb-12 ">
           <h2 className="text-3xl lg:text-4xl font-bold text-center mb-8">History & Milestones</h2>
           <div className="bg-black p-6 rounded-lg shadow-lg">
             <h3 className="text-2xl font-semibold mb-4">Our Journey</h3>
@@ -94,7 +142,14 @@ const ParticlesDemo = () => {
               <li><strong>2022:</strong> Became the leading sports booking platform in the region.</li>
             </ul>
           </div>
-        </div>
+        </div> */}
+
+<div>
+  <h2 className="text-xl md:text-3xl lg:text-6xl text-center font-bold pt-6 pb-6 lg:pb-12 lg:pt-12">Want To know About Us?</h2>
+          <HistoryTimeline events={events}/>
+</div>
+
+
 
 
            {/* Contact Information */}
