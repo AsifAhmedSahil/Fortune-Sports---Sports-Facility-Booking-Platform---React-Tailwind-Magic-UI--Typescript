@@ -3,18 +3,30 @@ import { baseApi } from './api/baseApi'
 import loginReducer from "./features/loginSlice"
 import registerReducer from "./features/registerSlice"
 import userReducer from "./features/userSlice"
+import { persistReducer, persistStore } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
+
+const persistUserConfig = {
+  key:'user',
+  storage
+}
+
+const persistedUserReducer = persistReducer(persistUserConfig,userReducer)
 
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     login:loginReducer,
     register:registerReducer,
-    user:userReducer
+    user:persistedUserReducer
 
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(baseApi.middleware),
+    getDefaultMiddleware({serializableCheck:false}).concat(baseApi.middleware),
 })
+
+export const persistor = persistStore(store)
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>

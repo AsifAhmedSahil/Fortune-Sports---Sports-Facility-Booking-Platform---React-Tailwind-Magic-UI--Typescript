@@ -6,9 +6,23 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { useState } from "react";
 import { navItems } from "@/constants";
 import { X } from "lucide-react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { RootState } from "@/redux/store";
+import { logout } from "@/redux/features/userSlice";
+import { toast } from "sonner";
 
 export const Navbar = () => {
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+
+  const { user } = useAppSelector((state: RootState) => state.user);
+  console.log(user);
+
+  const dispatch = useAppDispatch()
+
+  const handleLogout = () =>{
+    dispatch(logout())
+    toast.success("Log Out Successfully",{duration:2000})
+  }
 
   const toggleNavbar = () => {
     setMobileDrawerOpen(!mobileDrawerOpen);
@@ -96,25 +110,52 @@ export const Navbar = () => {
             </a>
           </nav>
           <div className="hidden lg:flex gap-4 ">
-            <Link to={"/login"} >
-            <button
-              type="button"
-              className="text-black bg-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            >
-              Login
-            </button>
-            </Link>
-            <Link to={"/signup"}>
-            <button
-              type="button"
-              className="text-white bg-gradient-to-br from-purple-900 to-purple-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 flex justify-center items-center gap-2"
-            >
-              Sign Up
-              <span className="animate-ping duration-1">
-                <FaLongArrowAltRight />
-              </span>
-            </button>
-            </Link>
+            {user && user.email ? (
+              <>
+                <Link to={"/dashboard"}>
+                  <button
+                    type="button"
+                    className="text-black bg-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                  >
+                    Dashboard
+                  </button>
+                </Link>
+                <Link to={"/login"}>
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    className="text-white bg-gradient-to-br from-purple-900 to-purple-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 flex justify-center items-center gap-2"
+                  >
+                    Log Out
+                    <span className="animate-ping duration-1">
+                      <FaLongArrowAltRight />
+                    </span>
+                  </button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to={"/login"}>
+                  <button
+                    type="button"
+                    className="text-black bg-white  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                  >
+                    Login
+                  </button>
+                </Link>
+                <Link to={"/signup"}>
+                  <button
+                    type="button"
+                    className="text-white bg-gradient-to-br from-purple-900 to-purple-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 flex justify-center items-center gap-2"
+                  >
+                    Sign Up
+                    <span className="animate-ping duration-1">
+                      <FaLongArrowAltRight />
+                    </span>
+                  </button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
