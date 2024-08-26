@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { baseApi } from './api/baseApi'
 import loginReducer from "./features/loginSlice"
 import registerReducer from "./features/registerSlice"
+import facilityReducer from "./features/addFacilitySlice"
 import userReducer from "./features/userSlice"
 import { persistReducer, persistStore } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
@@ -19,7 +20,8 @@ export const store = configureStore({
     [baseApi.reducerPath]: baseApi.reducer,
     login:loginReducer,
     register:registerReducer,
-    user:persistedUserReducer
+    user:persistedUserReducer,
+    facility:facilityReducer
 
   },
   middleware: (getDefaultMiddleware) =>

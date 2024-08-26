@@ -7,7 +7,7 @@ import { RootState } from "@/redux/store";
 import { setEmail, setPassword } from "@/redux/features/loginSlice";
 import { useLoginMutation } from "@/redux/api/auth/authApi";
 import { jwtDecode } from "jwt-decode";
-import { setToken, setUser } from "@/redux/features/userSlice";
+import {  setToken, setUser } from "@/redux/features/userSlice";
 import { toast } from 'sonner';
 
 const Login = () => {
@@ -25,7 +25,8 @@ const Login = () => {
     const user = jwtDecode(token);
     console.log("logged in user", user);
     toast.success("Logged in successfully",{duration:2000})
-    dispatch(setToken(token));
+    const bearearToken = `Bearer ${token}`
+    dispatch(setToken(bearearToken));
     dispatch(setUser(user));
     navigate("/")
   };

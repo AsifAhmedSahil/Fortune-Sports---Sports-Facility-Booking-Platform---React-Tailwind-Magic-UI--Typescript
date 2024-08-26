@@ -3,7 +3,7 @@ import { Navbar } from "@/pages/shared/Navbar";
 import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 
-import { NavLink, Outlet } from "react-router-dom";
+import {  NavLink, Outlet } from "react-router-dom";
 import { SlCalender } from "react-icons/sl";
 import { MdAddToPhotos, MdSportsBasketball } from "react-icons/md";
 import { FaBookReader } from "react-icons/fa";
@@ -27,15 +27,15 @@ const Dashboard = () => {
         </h2>
       </div>
 
-      <div className="bg-gray-200 flex-1">
+      <div className="bg-black flex-1">
         <div className="w-full lg:w-[70%] lg:mx-auto px-4 py-6">
           {user?.role === "user" ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
               <NavLink
                 to="/dashboard/my-bookings"
                 className={({ isActive }) =>
-                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer bg-white rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black"
+                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer bg-white  rounded-lg shadow-lg transition-transform transform ${
+                    isActive ? "bg-green-700 text-white" : "text-black "
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -164,7 +164,9 @@ const Dashboard = () => {
           )}
         </div>
 
-        <div className="flex-1">
+        <div className="my-4 border-t border-gray-300 maxw"></div>
+
+        <div className="flex-1 px-2 lg:px-32 py-16">
           <Outlet />
         </div>
       </div>
