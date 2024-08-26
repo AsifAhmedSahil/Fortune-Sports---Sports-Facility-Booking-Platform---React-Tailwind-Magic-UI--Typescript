@@ -1,8 +1,9 @@
 import { useAddFacilityMutation } from '@/redux/api/facility/facilityApi';
-import { setDescription, setLocation, setName, setPricePerHour } from '@/redux/features/addFacilitySlice';
+import { resetFacility, setDescription, setLocation, setName, setPricePerHour } from '@/redux/features/addFacilitySlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { RootState } from '@/redux/store';
 import React from 'react';
+import { toast } from 'sonner';
 
 const AddFacilities = () => {
   const dispatch = useAppDispatch()
@@ -21,6 +22,12 @@ const AddFacilities = () => {
     }
     const data = await addFacility(facilityData)
     console.log(data)
+    toast.success("Facility Added SuccessFully",{duration:2000})
+    if(data){
+      dispatch(resetFacility())
+    }
+    
+
   }
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-12 mb-12">

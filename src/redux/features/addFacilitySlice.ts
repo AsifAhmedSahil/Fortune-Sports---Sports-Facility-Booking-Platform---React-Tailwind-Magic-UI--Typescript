@@ -23,8 +23,9 @@ const addFacility = createSlice({
         setLocation:(state,action:PayloadAction<string>) =>{
             state.location = action.payload
         },
+        resetFacility:()=> initialState
     }
 })
 
-export const {setDescription,setLocation,setPricePerHour,setName} = addFacility.actions
+export const {setDescription,setLocation,setPricePerHour,setName,resetFacility} = addFacility.actions
 export default addFacility.reducer

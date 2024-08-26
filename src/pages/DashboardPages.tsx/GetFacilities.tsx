@@ -1,41 +1,39 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useGetFacilityQuery } from '@/redux/api/facility/facilityApi'
+import { useDeleteFacilityMutation, useGetFacilityQuery } from '@/redux/api/facility/facilityApi'
 
 import { Link } from 'react-router-dom'
 import { FaEdit, FaTrashAlt } from 'react-icons/fa'
+import Swal from 'sweetalert2'
+import { toast } from 'sonner'
 
 
 const GetFacilities = () => {
   const {data} = useGetFacilityQuery(undefined)
+  const [deleteItem] = useDeleteFacilityMutation()
   const facilities = data?.data
   console.log(facilities)
 
-  // const handleDeleteItem = (item :TAddProduct) => {
-  //   Swal.fire({
-  //     title: "Are you sure?",
-  //     text: "You won't be able to revert this!",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Yes, delete it!",
-  //   }).then(async (result) => {
-  //     if (result.isConfirmed) {
-  //       const res = await deleteItem(item._id)
-  //       if(res){
-  //         Swal.fire({
-  //           position: "top-end",
-  //           icon: "success",
-  //           title: `${item.title} has been deleted`,
-  //           showConfirmButton: false,
-  //           timer: 1500,
-  //         });
-  //       }
+  const handleDeleteItem = (item :any) => {
+    
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await deleteItem(item._id)
+        if(res){
+          toast.success("Facilities Deleted Successfully",{duration:2000})
+        }
 
 
-  //     }
-  //   });
-  // };
+      }
+    });
+  };
   
   return (
     <div className="overflow-x-auto">
@@ -53,7 +51,7 @@ const GetFacilities = () => {
           </tr>
         </thead>
         <tbody className="bg-black text-white bg-gradient-to-b from-black to-[#30125e] divide-y divide-gray-200">
-          {facilities?.map((item, index) => (
+          {facilities ?.filter((item: any) => !item.isDeleted).map((item:any,index:any) => (
             <tr key={item._id} className="text-sm text-white lg:text-xl">
             <td className="px-4 py-4 whitespace-nowrap">{index + 1}</td>
             <td className="px-4 py-4 whitespace-nowrap">
@@ -79,7 +77,7 @@ const GetFacilities = () => {
             </td>
             <td className="px-4 py-4 whitespace-nowrap text-center">
               <button
-                // onClick={() => handleDeleteItem(item)}
+                onClick={() => handleDeleteItem(item)}
                 className="text-red-500"
               >
                 <FaTrashAlt />

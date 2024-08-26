@@ -1,11 +1,14 @@
 import { useGetFacilityQuery } from "@/redux/api/facility/facilityApi"
 
 
+
 const Facilities = () => {
   const {data} = useGetFacilityQuery(undefined)
-  console.log(data)
+  const facilities = data?.data
   return (
-    <div>Facilities</div>
+    <div>
+    
+    </div>
   )
 }
 
