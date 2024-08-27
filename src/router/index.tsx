@@ -1,6 +1,7 @@
 import Dashboard from "@/components/Layout/Dashboard";
 import MainLayout from "@/components/Layout/MainLayout";
 import About from "@/pages/About/AboutUs";
+import BookingDetails from "@/pages/Components/BookingDetails";
 import ProductDetails from "@/pages/Components/ProductDetails";
 import Contact from "@/pages/Contact/Contact";
 import AddAdmin from "@/pages/DashboardPages.tsx/AddAdmin";
@@ -49,9 +50,14 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/items/:id",
+        path: "/facilities/:id",
         element: <ProductDetails />,
         loader: ({params}) => fetch(`http://localhost:5000/api/facility/${params.id}`)
+      },
+      {
+        path: "/facilities/booking-details",
+        element: <BookingDetails />,
+        
       },
     ]
     },

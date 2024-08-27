@@ -14,7 +14,7 @@ const AddFacilities = () => {
   const dispatch = useAppDispatch()
   const {name,description,location,pricePerHour} = useAppSelector((state:RootState)=>state.facility)
 
-  const [addFacility] = useAddFacilityMutation()
+  const [addFacility,{isLoading}] = useAddFacilityMutation()
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
@@ -31,7 +31,10 @@ console.log(file,"image****************")
     
     const formData = new FormData();
     formData.append('image', file!);
-
+    
+    if(isLoading){
+      toast.loading("Creating Facilities")
+    }
     // Upload image to ImgBB
     const response = await axios.post(
       'https://api.imgbb.com/1/upload?key=36a0c300dd8725a59ef1d1b64fcdb73f',
@@ -65,6 +68,10 @@ console.log(file,"image****************")
     // console.log(data)
     if(data){
       dispatch(resetFacility())
+    }
+
+    if(isLoading){
+      toast.loading("Creating Facilities")
     }
     
 

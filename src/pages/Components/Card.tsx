@@ -32,7 +32,7 @@ const Card = ({ item }: any) => {
         </p>
       </div>
       
-      <Link to={`/items/${_id}`}>
+      <Link to={`/facilities/${_id}`}>
       <div className="px-6 pb-4 mt-auto ">
         <button 
           type="button" 
