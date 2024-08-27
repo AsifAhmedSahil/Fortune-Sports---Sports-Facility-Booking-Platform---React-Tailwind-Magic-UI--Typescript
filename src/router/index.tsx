@@ -15,6 +15,7 @@ import Statistics from "@/pages/DashboardPages.tsx/Statistics";
 
 import Facilities from "@/pages/Facilities/Facilities";
 import Home from "@/pages/Home/Home";
+import NotFound from "@/pages/shared/NotFound";
 import Login from "@/pages/Social/Login";
 import Register from "@/pages/Social/Register";
 
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
     {
         path: "/",
     element: <MainLayout />,
+    errorElement:<NotFound></NotFound>,
     children: [
       {
         index: true,
@@ -55,8 +57,10 @@ const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:5000/api/facility/${params.id}`)
       },
       {
-        path: "/facilities/booking-details",
+        path: "/facilities/booking-details/:id",
         element: <BookingDetails />,
+        loader: ({params}) => fetch(`http://localhost:5000/api/facility/${params.id}`)
+
         
       },
     ]
@@ -64,6 +68,7 @@ const router = createBrowserRouter([
     {
       path: "/dashboard",
       element: <Dashboard />,
+      errorElement:<NotFound></NotFound>,
       children: [
        {
         path:"/dashboard/my-bookings",

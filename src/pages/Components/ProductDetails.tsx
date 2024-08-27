@@ -94,7 +94,7 @@ const ProductDetails = () => {
               Location: {data.location}
             </p>
 
-         <Link to={"/facilities/booking-details"}>
+         <Link to={`/facilities/booking-details/${data._id}`}>
          <div className="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
               <button
                 type="button"

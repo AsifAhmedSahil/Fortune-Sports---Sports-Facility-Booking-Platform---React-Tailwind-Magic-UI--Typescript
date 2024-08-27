@@ -11,6 +11,7 @@ const AllBookings = () => {
   const [deleteItem] = useDeleteBookingMutation();
 
   const handleDeleteItem = async (item: { _id: string }) => {
+    console.log(item._id)
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -23,6 +24,7 @@ const AllBookings = () => {
       if (result.isConfirmed) {
         try {
           const res = await deleteItem(item._id);
+          console.log(res)
           if (res) {
             toast.success('Booking Deleted Successfully', { duration: 2000 });
           }
