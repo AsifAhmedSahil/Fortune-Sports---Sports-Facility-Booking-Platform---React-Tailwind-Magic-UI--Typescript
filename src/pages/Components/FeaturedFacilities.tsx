@@ -6,21 +6,21 @@ import { Link } from "react-router-dom";
 const featuredFacilities = [
   {
     id: 1,
-    name: 'Turf A',
+    name: 'SandSpiker Beach Volleyball',
     description: 'A premium turf with top-notch grass quality for all your sports needs.',
     rating: 4.5,
     image: 'https://images.unsplash.com/photo-1632300951015-42d7df909581?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb3RiYWxsJTIwZmllbGR8ZW58MHx8MHx8fDA%3D', // Update with your image paths
   },
   {
     id: 2,
-    name: 'Turf B',
+    name: 'Premier Cricket Ground',
     description: 'Ideal for football and soccer games with excellent drainage and surface.',
     rating: 4.7,
     image: 'https://images.unsplash.com/photo-1585822754398-04873d4e1f50?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNyaWNrZXQlMjBmaWVsZHxlbnwwfHwwfHx8MA%3D%3D',
   },
   {
     id: 3,
-    name: 'Turf C',
+    name: 'Ace Tennis Club',
     description: 'Perfect for casual games and training sessions with a well-maintained field.',
     rating: 4.3,
     image: 'https://plus.unsplash.com/premium_photo-1708119178805-321dec8ba9cf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmFkbWludG9uJTIwZmllbGR8ZW58MHwwfDB8fHww',

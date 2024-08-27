@@ -13,6 +13,7 @@ import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 
 const Dashboard = () => {
   const { user } = useAppSelector((state: RootState) => state.user);
+  
 
   return (
     <div className="w-full min-h-screen flex flex-col">
@@ -23,7 +24,7 @@ const Dashboard = () => {
           {user?.role} Dashboard
         </h2>
         <h2 className="text-sm lg:text-xl font-semibold">
-          <h3>Welcome, {user?.email}</h3>
+          <h3 className="text-2xl">👋 Welcome, {user?.name}</h3>
         </h2>
       </div>
 

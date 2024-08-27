@@ -30,8 +30,8 @@ const Facilities = () => {
         "Discover & Book Top Sports Venues Near You"
       </h1>
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {currentProducts?.filter((item:any) => !item.isDeleted ).map((item, index) => (
-          <Card item={item} />
+        {currentProducts?.filter((item:any) => !item.isDeleted ).map((item:any, index:any) => (
+          <Card item={item} key={index} />
         ))}
       </div>
       <Pagination productsPerPage={productsPerPage} totalProducts={facilities?.length} paginate={paginate} activePage={currentPage} />
