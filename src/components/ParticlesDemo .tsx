@@ -159,13 +159,13 @@ const ParticlesDemo = () => {
             {/* Contact Information Text */}
             <div className="flex-1 p-6 lg:p-12">
               <p className="text-lg lg:text-xl mb-4">
-                <strong>Office Address:</strong> 123 Sports Avenue, City, Country
+                <strong>Office Address:</strong> Fortune Sports, Chittagong, Bangladesh
               </p>
               <p className="text-lg lg:text-xl mb-4">
                 <strong>Phone Number:</strong> (123) 456-7890
               </p>
               <p className="text-lg lg:text-xl mb-4">
-                <strong>Email:</strong> support@yourplatform.com
+                <strong>Email:</strong> fortunesports@gmail.com
               </p>
               <p className="text-lg lg:text-xl">
                 We would love to hear from you! If you have any questions or need assistance, feel free to reach out to us.

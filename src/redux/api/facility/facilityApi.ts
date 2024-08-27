@@ -11,6 +11,7 @@ const authApi = baseApi.injectEndpoints({
             }),
             invalidatesTags:["Bookings"]
         }),
+       
         getFacility: builder.query({
             query:() =>({
                 url:"/facility/",

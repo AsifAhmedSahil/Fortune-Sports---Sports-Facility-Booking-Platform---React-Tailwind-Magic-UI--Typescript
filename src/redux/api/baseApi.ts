@@ -17,7 +17,7 @@ const baseQuery = fetchBaseQuery(
             return headers
         }
     },
-    //! here credentials include means access cookie info from cookies**
+    
  )
 
  

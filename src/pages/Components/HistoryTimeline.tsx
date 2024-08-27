@@ -1,15 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Fragment } from 'react';
 
+type EventCard = {
+    heading:string,
+    subHeading:string
+}
 
 
-
-const HistoryTimeline = ({ events }) => {
+const HistoryTimeline = ({ events }:any) => {
   return (
     <div className="flex flex-col gap-y-3 my-4 w-full">
       <Circle />
 
-      {events.map((event, key) => {
+      {events.map((event:any, key:any) => {
         return <Fragment key={key}>
             <div className="grid grid-cols-[1fr_auto_1fr] gap-x-2 items-center mx-auto">
                 {
@@ -49,7 +53,7 @@ const Pillar = () => {
     <div className="rounded-t-full rounded-b-full w-2 h-full bg-blue-600 mx-auto"></div>
   );
 };
-const EventCard = ({ heading, subHeading }) => {
+const EventCard = ({ heading, subHeading }:EventCard) => {
   return (
     <div className="flex flex-col gap-y-2 border shadow-md rounded-xl p-4">
       <div className="text-white text-2xl font-bold pb-3 border-b">{heading}</div>
