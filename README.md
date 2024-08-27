@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+### Sports Facility Booking Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+Welcome to the **Sports Facility Booking Platform**! This project provides a robust solution for booking sports facilities with a user-friendly interface and powerful backend functionalities. Ideal for sports enthusiasts and facility managers alike, the platform ensures a seamless experience for managing and booking sports venues.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Description
 
-## Expanding the ESLint configuration
+The Sports Facility Booking Platform is designed to facilitate the booking of various sports facilities. Users can browse available facilities, check availability, and make bookings through a modern, intuitive interface. The platform supports both users and administrators with dedicated dashboards for managing bookings and facility details. Key features include secure authentication, real-time availability checking, and payment integration.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- **Landing Page**: Overview of the platform, featured facilities, and booking guidance.
+- **User Dashboard**: Manage bookings, view details, and cancel if needed.
+- **Admin Dashboard**: Manage facilities, bookings, and users, with options to add or remove admin accounts.
+- **Login/Registration**: Secure login and registration with optional social media integration.
+- **About Us Page**: Information about the organization and team.
+- **Contact Us Page**: Contact form, office location, and contact details.
+- **Facility Listing Page**: Search and filter facilities with detailed cards.
+- **Facility Details Page**: In-depth information about specific facilities.
+- **Booking Page**: Check availability, select a date, and complete bookings with payment integration.
+- **Error Pages**: Custom 404 and unauthorized access error pages.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Technology Stack
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Frontend**: React, TypeScript, Tailwind CSS, Mapbox
+- **Backend**: Node.js, Express.js, MongoDB
+- **Payment Integration**: SSL Commerz/AmarPay
+- **Authentication**: JWT
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Installation Guideline
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (local or remote instance)
+- Mapbox API Key
+- SSL Commerz/AmarPay credentials (for payment integration)
+
+### Installation Steps
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/your-username/sports-facility-booking-platform.git
+   cd sports-facility-booking-platform
