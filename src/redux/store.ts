@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { baseApi } from './api/baseApi'
 import loginReducer from "./features/loginSlice"
 import registerReducer from "./features/registerSlice"
+import adminReducer from "./features/adminSlice"
 import facilityReducer from "./features/addFacilitySlice"
 import userReducer from "./features/userSlice"
 import { persistReducer, persistStore } from 'redux-persist'
@@ -20,6 +21,7 @@ export const store = configureStore({
     [baseApi.reducerPath]: baseApi.reducer,
     login:loginReducer,
     register:registerReducer,
+    admin:adminReducer,
     user:persistedUserReducer,
     facility:facilityReducer
 
