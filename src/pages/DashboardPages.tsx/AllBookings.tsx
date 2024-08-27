@@ -1,42 +1,43 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useDeleteBookingMutation, useGetBookingsQuery } from '@/redux/api/bookingsApi/bookingsApi'
-
-import { FaEdit, FaTrashAlt } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { useDeleteBookingMutation, useGetBookingsQuery } from '@/redux/api/bookingsApi/bookingsApi';
+import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import {toast} from "sonner"
-
-
-
+import { toast } from 'sonner';
 
 const AllBookings = () => {
-  const {data} = useGetBookingsQuery(undefined)
+  const { data, error, isLoading } = useGetBookingsQuery(undefined);
 
-  const [deleteItem] = useDeleteBookingMutation()
+  const [deleteItem] = useDeleteBookingMutation();
 
-const handleDeleteItem = (item :any) => {
-    
-  Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
-  }).then(async (result) => {
-    if (result.isConfirmed) {
-      const res = await deleteItem(item._id)
-      if(res){
-        toast.success(" Bookings Deleted Successfully",{duration:2000})
+  const handleDeleteItem = async (item: { _id: string }) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const res = await deleteItem(item._id);
+          if (res) {
+            toast.success('Booking Deleted Successfully', { duration: 2000 });
+          }
+        } catch (err:any) {
+          toast.error('Failed to delete booking',err);
+        }
       }
+    });
+  };
 
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading bookings</div>;
 
-    }
-  });
-};
-  // console.log(data.data)
-  const bookings = data?.data
+  const bookings = data?.data;
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y divide-gray-200">
@@ -45,7 +46,7 @@ const handleDeleteItem = (item :any) => {
           <tr className="text-lg text-gray-600">
             <th className="px-4 py-3 text-left">No.</th>
             <th className="px-4 py-3 text-left">Date</th>
-            <th className="px-4 py-3  text-left">Start</th>
+            <th className="px-4 py-3 text-left">Start</th>
             <th className="px-4 py-3 text-left">End</th>
             <th className="px-4 py-3 text-left">Name</th>
             <th className="px-4 py-3 text-left">Field Name</th>
@@ -54,48 +55,35 @@ const handleDeleteItem = (item :any) => {
           </tr>
         </thead>
         <tbody className="bg-black text-white bg-gradient-to-b from-black to-[#30125e] divide-y divide-gray-200">
-          {bookings ?.filter((item: any) => item.isBooked === "confirmed").map((item:any,index:any) => (
+          {bookings?.filter((item:any) => item.isBooked === 'confirmed').map((item :any, index:number) => (
             <tr key={item._id} className="text-sm text-white lg:text-xl">
-            <td className="px-4 py-4 whitespace-nowrap">{index + 1}</td>
-            <td className="px-4 py-4 whitespace-nowrap">
-            {item.date}
-            </td>
-            {/* <td className="px-4 py-4 whitespace-nowrap">
-              <div className="flex items-center justify-center">
-                <div className="w-12 h-12">
-                  <img
-                    className="w-full h-full object-cover rounded-full"
-                    src={item.image}
-                    alt={item.name}
-                  />
-                </div>
-              </div>
-            </td> */}
-            <td className="px-4 py-4 whitespace-nowrap text-left ">{item.startTime}</td>
-            <td className="px-4  py-4  text-left">{item.endTime}</td>
-            <td className="px-4 py-4 whitespace-nowrap">{item.user.name}</td>
-            <td className="px-4 py-4 whitespace-nowrap">{item.facility.name}</td>
-            <td className="px-4 py-4 whitespace-nowrap text-center">
-              <Link to={`/dashboard/updateItem/${item._id}`}>
-                <button className="text-red-500 ">
-                  <FaEdit />
+              <td className="px-4 py-4 whitespace-nowrap">{index + 1}</td>
+              <td className="px-4 py-4 whitespace-nowrap">{item.date}</td>
+              <td className="px-4 py-4 whitespace-nowrap text-left">{item.startTime}</td>
+              <td className="px-4 py-4 whitespace-nowrap text-left">{item.endTime}</td>
+              <td className="px-4 py-4 whitespace-nowrap">{item.user?.name}</td>
+              <td className="px-4 py-4 whitespace-nowrap">{item.facility?.name}</td>
+              <td className="px-4 py-4 whitespace-nowrap text-center">
+                <Link to={`/dashboard/updateItem/${item._id}`}>
+                  <button className="text-red-500">
+                    <FaEdit />
+                  </button>
+                </Link>
+              </td>
+              <td className="px-4 py-4 whitespace-nowrap text-center">
+                <button
+                  onClick={() => handleDeleteItem(item)}
+                  className="text-red-500"
+                >
+                  <FaTrashAlt />
                 </button>
-              </Link>
-            </td>
-            <td className="px-4 py-4 whitespace-nowrap text-center">
-              <button
-                onClick={() => handleDeleteItem(item)}
-                className="text-red-500"
-              >
-                <FaTrashAlt />
-              </button>
-            </td>
-          </tr>
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default AllBookings
+export default AllBookings;
