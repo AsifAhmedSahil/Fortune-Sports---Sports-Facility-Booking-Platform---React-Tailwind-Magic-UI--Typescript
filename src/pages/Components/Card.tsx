@@ -1,31 +1,48 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // src/components/Card.jsx
 
+import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card = ({ item }: any) => {
+  const {_id, name, image, description, pricePerHour } = item;
+  
+  const truncateDescription = (text: string, maxLength: number) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    } else {
+      return text;
+    }
+  };
+
   return (
-    
-
-
-<div className="w-full flex  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-        <img className="rounded-t-lg" src="https://i.ibb.co/vVjjv6Z/Aloe-Vera-Tree.webp" alt="" />
-    </a>
-    <div className="p-5">
-        <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-        <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-             <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-        </a>
+    <div className="max-w-sm rounded overflow-hidden shadow-lg text-black bg-white mb-12 flex flex-col h-full">
+      <img
+        className="w-full h-56 object-cover"
+        src={image}
+        alt="Facility"
+      />
+      <div className="px-6 pt-4 flex-1 ">
+        <div className="font-bold text-xl mb-2">{name}</div>
+        <p className="text-gray-700 text-base">{truncateDescription(description, 90)}</p>
+        <p className="text-gray-700 text-base">
+          Price Per Hour:{" "}
+          <span className="inline-block text-black font-bold rounded-full px-3 py-1 text-lg mr-2 mb-2">
+            Tk.{pricePerHour}/=
+          </span>
+        </p>
+      </div>
+      
+      <Link to={`/items/${_id}`}>
+      <div className="px-6 pb-4 mt-auto ">
+        <button 
+          type="button" 
+          className="w-full text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          Check Details
+        </button>
+      </div>
+      </Link>
     </div>
-</div>
-
-
   );
 };
 

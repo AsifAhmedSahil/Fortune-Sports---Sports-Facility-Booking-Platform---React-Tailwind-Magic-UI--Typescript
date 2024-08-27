@@ -1,6 +1,7 @@
 import Dashboard from "@/components/Layout/Dashboard";
 import MainLayout from "@/components/Layout/MainLayout";
 import About from "@/pages/About/AboutUs";
+import ProductDetails from "@/pages/Components/ProductDetails";
 import Contact from "@/pages/Contact/Contact";
 import AddAdmin from "@/pages/DashboardPages.tsx/AddAdmin";
 import AddFacilities from "@/pages/DashboardPages.tsx/AddFacilities";
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <Register />,
+      },
+      {
+        path: "/items/:id",
+        element: <ProductDetails />,
+        loader: ({params}) => fetch(`http://localhost:5000/api/facility/${params.id}`)
       },
     ]
     },

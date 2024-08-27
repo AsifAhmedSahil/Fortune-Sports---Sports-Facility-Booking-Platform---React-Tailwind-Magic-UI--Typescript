@@ -13,6 +13,14 @@ const GetFacilities = () => {
   const facilities = data?.data
   console.log(facilities)
 
+  const truncateDescription = (text: string, maxLength: number) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    } else {
+      return text;
+    }
+  };
+
   const handleDeleteItem = (item :any) => {
     
     Swal.fire({
@@ -66,7 +74,7 @@ const GetFacilities = () => {
               </div>
             </td>
             <td className="px-4 py-4 whitespace-nowrap text-left ">{item.name}</td>
-            <td className="px-4  py-4  text-left">{item.description}</td>
+            <td className="px-4 text-center py-4  text-left">{truncateDescription(item.description ,100)}</td>
             <td className="px-4 py-4 whitespace-nowrap">Tk.{item.pricePerHour}</td>
             <td className="px-4 py-4 whitespace-nowrap text-center">
               <Link to={`/dashboard/updateItem/${item._id}`}>
