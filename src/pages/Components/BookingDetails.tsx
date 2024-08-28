@@ -1,4 +1,6 @@
 import { useCreateBookingMutation } from '@/redux/api/bookingsApi/bookingsApi';
+import { useAppSelector } from '@/redux/hooks';
+import { RootState } from '@/redux/store';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'; // Import default styles
@@ -6,6 +8,8 @@ import { useLoaderData } from 'react-router-dom';
 
 const BookingDetails = () => {
   const { data } = useLoaderData();
+  const {user} = useAppSelector((state:RootState) => state.user)
+  console.log(user?.email)
   const [createBooking] = useCreateBookingMutation();
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [availableTimeSlots, setAvailableTimeSlots] = useState<{ startTime: string; endTime: string }[]>([]);
@@ -91,6 +95,7 @@ const BookingDetails = () => {
 
       const formData = {
         facility: data._id,
+        email:user?.email,
         firstName,
         lastName,
         guestCount,
@@ -104,6 +109,10 @@ const BookingDetails = () => {
       // Uncomment this when ready to integrate with API
       const res = await createBooking(formData);
       console.log(res);
+
+      if(res.data.success){
+        window.location.href = res.data.data.payment_url
+      }
       
 
     } else {
@@ -254,9 +263,9 @@ const BookingDetails = () => {
           </div>
           <button
             type="submit"
-            className="w-full rounded-md border border-[#6A64F1] bg-[#6A64F1] py-3 px-6 text-base font-medium text-white hover:bg-[#5a4cb6]"
+            className="w-full rounded-md border border-black bg-black py-3 px-6 text-base  text-white hover:black font-bold"
           >
-            Book Now
+            Confirm Payment
           </button>
         </form>
       </div>
