@@ -4,7 +4,7 @@
 import { Link } from "react-router-dom";
 
 const Card = ({ item }: any) => {
-  const {_id, name, image, description, pricePerHour } = item;
+  const {_id, name, image, description, pricePerHour,location } = item;
   
   const truncateDescription = (text: string, maxLength: number) => {
     if (text.length > maxLength) {
@@ -30,6 +30,7 @@ const Card = ({ item }: any) => {
             Tk.{pricePerHour}/=
           </span>
         </p>
+        <p className="text-gray-700 text-base">Location: {location}</p>
       </div>
       
       <Link to={`/facilities/${_id}`}>

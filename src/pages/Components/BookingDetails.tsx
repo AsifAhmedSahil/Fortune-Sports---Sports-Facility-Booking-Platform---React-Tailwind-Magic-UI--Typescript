@@ -5,9 +5,28 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'; // Import default styles
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'sonner';
+
+type Facility = {
+  _id: string;
+  description: string;
+  image: string;
+  isDeleted: boolean;
+  location: string;
+  name: string;
+  pricePerHour: number;
+  __v: number;
+};
+
+type LoaderData = {
+  data: Facility;
+};
+
+
 
 const BookingDetails = () => {
-  const { data } = useLoaderData();
+  const { data } = useLoaderData() as LoaderData;
+  console.log(data,"********************")
   const {user} = useAppSelector((state:RootState) => state.user)
   console.log(user?.email)
   const [createBooking] = useCreateBookingMutation();
@@ -108,6 +127,7 @@ const BookingDetails = () => {
 
       // Uncomment this when ready to integrate with API
       const res = await createBooking(formData);
+      toast.loading("Create Booking...")
       console.log(res);
 
       if(res.data.success){
