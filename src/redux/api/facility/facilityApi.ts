@@ -20,6 +20,14 @@ const authApi = baseApi.injectEndpoints({
             })
             ,providesTags:["Bookings"]
         }),
+        getSingleFacility: builder.query({
+            query:(id) =>({
+                url:`/facility/${id}`,
+                method:"GET",
+                
+            })
+            ,providesTags:["Bookings"]
+        }),
         updateFacility: builder.mutation({
             query:(facilityData) =>({
                 url:"/facility/",
@@ -40,4 +48,4 @@ const authApi = baseApi.injectEndpoints({
     })
 })
 
-export const {useAddFacilityMutation,useGetFacilityQuery,useDeleteFacilityMutation,useUpdateFacilityMutation} = authApi
+export const {useAddFacilityMutation,useGetFacilityQuery,useDeleteFacilityMutation,useUpdateFacilityMutation,useGetSingleFacilityQuery} = authApi

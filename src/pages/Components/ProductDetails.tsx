@@ -1,24 +1,51 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+// import { useGetSingleFacilityQuery } from "@/redux/api/facility/facilityApi";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 
+interface TData {
+  data:{}
+}
+
+interface ProductData {
+  _id: string;
+  name: string;
+  image: string;
+  pricePerHour: number;
+  
+  location: string;
+  description: string;
+  
+}
+
 const ProductDetails = () => {
-  const { data } = useLoaderData();
+  const item = useLoaderData() as TData ;
+  // const {} = item.data 
+  const {image,pricePerHour,name,location,_id,description} = item.data as ProductData
+  console.log(item.data)
+  // const { id } = useParams(); // Extract ID from URL
+  // console.log('ID from URL:', id);
+  // const id = "66cdec0df0587d060e88f293"
+
+  // Fetch facility data based on the ID
+  // const { data} = useGetSingleFacilityQuery(id);
+  // console.log(data)
 
   return (
     <section className="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased ">
       <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
           <div className="shrink-0 max-w-lg lg:max-w-lg mx-auto">
-            <img className="w-full dark:hidden" src={data.image} alt="" />
+            <img className="w-full dark:hidden" src={image} alt="" />
           </div>
 
           <div className="mt-6 sm:mt-8 lg:mt-0">
             <h1 className="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">
-              {data.name}
+              {name}
             </h1>
             <div className="mt-4 sm:items-left sm:gap-4 flex flex-col">
               <p className="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white">
-                Price: {data.pricePerHour} TK / Hour
+                Price: {pricePerHour} TK / Hour
               </p>
 
               <div className="flex items-center gap-2 mt-2 sm:mt-0">
@@ -91,10 +118,10 @@ const ProductDetails = () => {
               </div>
             </div>
             <p className="text-sm lg:text-xl font-bold mt-6">
-              Location: {data.location}
+              Location: {location}
             </p>
 
-         <Link to={`/facilities/booking-details/${data._id}`}>
+         <Link to={`/facilities/booking-details/${_id}`}>
          <div className="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
               <button
                 type="button"
@@ -111,7 +138,7 @@ const ProductDetails = () => {
             <hr className="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
 
             <p className="text-gray-500 dark:text-gray-400">
-              {data.description}
+              {description}
             </p>
           </div>
         </div>
