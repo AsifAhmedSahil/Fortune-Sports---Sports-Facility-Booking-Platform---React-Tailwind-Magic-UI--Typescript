@@ -1,4 +1,4 @@
-### Sports Facility Booking Platform
+## Sports Facility Booking Platform
 
 ## Introduction
 

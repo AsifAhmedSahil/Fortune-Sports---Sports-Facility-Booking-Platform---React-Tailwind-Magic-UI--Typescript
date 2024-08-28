@@ -5,6 +5,14 @@ import { baseApi } from "../baseApi";
 
 const bookingsApi = baseApi.injectEndpoints({
     endpoints:(builder) =>({
+        createBooking: builder.mutation({
+            query:(bookingData) =>({
+                url:"/bookings/",
+                method:"POST",
+                body:bookingData
+            }),
+            invalidatesTags:["Bookings"]
+        }),
         getBookings: builder.query({
             query:() =>({
                 url:"/bookings",
@@ -31,4 +39,4 @@ const bookingsApi = baseApi.injectEndpoints({
     })
 })
 
-export const {useGetBookingsQuery,useDeleteBookingMutation,useGetSingleBookingsQuery} = bookingsApi
+export const {useGetBookingsQuery,useDeleteBookingMutation,useGetSingleBookingsQuery,useCreateBookingMutation} = bookingsApi

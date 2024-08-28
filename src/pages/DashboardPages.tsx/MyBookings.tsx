@@ -2,7 +2,8 @@
 import { useDeleteBookingMutation, useGetSingleBookingsQuery } from "@/redux/api/bookingsApi/bookingsApi"
 import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+import { FcCancel } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import Swal from "sweetalert2";
@@ -22,17 +23,17 @@ const MyBookings = () => {
     
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      text: "You won't be able to booked this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, Cancel it!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         const res = await deleteItem(item._id)
         if(res){
-          toast.success(" Bookings Deleted Successfully",{duration:2000})
+          toast.success(" Bookings Cancelled Successfully",{duration:2000})
         }
   
   
@@ -80,7 +81,7 @@ const MyBookings = () => {
                 onClick={() => handleDeleteItem(item)}
                 className="text-red-500"
               >
-                <FaTrashAlt />
+                <FcCancel size={30} />
               </button>
             </td>
           </tr>
