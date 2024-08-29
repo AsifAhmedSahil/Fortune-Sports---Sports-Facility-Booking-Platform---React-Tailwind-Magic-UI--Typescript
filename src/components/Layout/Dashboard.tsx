@@ -33,32 +33,17 @@ const Dashboard = () => {
           {user?.role === "admin" ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
               
-              <NavLink
-                to="/dashboard/statistics"
-                className={({ isActive }) =>
-                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer bg-white rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black"
-                  } hover:shadow-xl hover:scale-105`
-                }
-              >
-                <div className="flex flex-col items-center justify-center text-center p-2 lg:p-4">
-                  <MdAddToPhotos className="block lg:hidden text-2xl lg:text-4xl mb-2" />{" "}
-                  {/* Hidden on large screens */}
-                  <h2 className="text-xs lg:text-lg font-semibold">
-                    Statistics
-                  </h2>
-                </div>
-              </NavLink>
+             
               <NavLink
                 to="/dashboard/add-facilities"
                 className={({ isActive }) =>
-                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer bg-white rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black"
+                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer  rounded-lg shadow-lg transition-transform transform ${
+                    isActive ? "bg-green-700 text-white" : "text-black bg-white"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
                 <div className="flex flex-col items-center justify-center text-center p-2 lg:p-4">
-                  <MdAddToPhotos className="block lg:hidden text-2xl lg:text-4xl mb-2" />{" "}
+                  <MdAddToPhotos className="hidden lg:block text-2xl lg:text-4xl mb-2" />{" "}
                   {/* Hidden on large screens */}
                   <h2 className="text-xs lg:text-lg font-semibold">
                     Add Facility
@@ -68,13 +53,13 @@ const Dashboard = () => {
               <NavLink
                 to="/dashboard/get-facilities"
                 className={({ isActive }) =>
-                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer bg-white rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black"
+                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
+                    isActive ? 'bg-green-700 text-white' : 'bg-white text-black'
                   } hover:shadow-xl hover:scale-105`
                 }
               >
                 <div className="flex flex-col items-center justify-center text-center p-2 lg:p-4">
-                  <MdSportsBasketball className="block lg:hidden text-2xl lg:text-4xl mb-2" />{" "}
+                  <MdSportsBasketball className="hidden lg:block text-2xl lg:text-4xl mb-2" />{" "}
                   {/* Hidden on large screens */}
                   <h2 className="text-xs lg:text-lg font-semibold">
                     Facilities
@@ -84,13 +69,13 @@ const Dashboard = () => {
               <NavLink
                 to="/dashboard/all-bookings"
                 className={({ isActive }) =>
-                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer bg-white rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black"
+                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer  rounded-lg shadow-lg transition-transform transform ${
+                    isActive ? "bg-green-700 text-white" : "text-black bg-white"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
                 <div className="flex flex-col items-center justify-center text-center p-2 lg:p-4">
-                  <FaBookReader className="block lg:hidden text-2xl lg:text-4xl mb-2" />{" "}
+                  <FaBookReader className="hidden lg:block text-2xl lg:text-4xl mb-2" />{" "}
                   {/* Hidden on large screens */}
                   <h2 className="text-xs lg:text-lg font-semibold">
                     All Bookings
@@ -100,13 +85,13 @@ const Dashboard = () => {
               <NavLink
                 to="/dashboard/add-admin"
                 className={({ isActive }) =>
-                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer bg-white rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black"
+                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer  rounded-lg shadow-lg transition-transform transform ${
+                    isActive ? "bg-green-700 text-white" : "text-black bg-white"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
                 <div className="flex flex-col items-center justify-center text-center p-2 lg:p-4">
-                  <RiAdminLine className="block lg:hidden text-2xl lg:text-4xl mb-2" />{" "}
+                  <RiAdminLine className="hidden lg:block text-2xl lg:text-4xl mb-2" />{" "}
                   {/* Hidden on large screens */}
                   <h2 className="text-xs lg:text-lg font-semibold">
                     Create Admin
@@ -125,7 +110,7 @@ const Dashboard = () => {
                 }
               >
                 <div className="flex flex-col items-center justify-center text-center p-2 lg:p-4">
-                  <SlCalender className="block lg:hidden text-2xl lg:text-4xl mb-2" />{" "}
+                  <SlCalender className="hidden lg:block text-2xl lg:text-4xl mb-2" />{" "}
                   {/* Hidden on large screens */}
                   <h2 className="text-xs lg:text-lg font-semibold">
                     My Bookings
@@ -141,7 +126,7 @@ const Dashboard = () => {
                 }
               >
                 <div className="flex flex-col items-center justify-center text-center p-2 lg:p-4">
-                  <LiaFileInvoiceDollarSolid className="block lg:hidden text-2xl lg:text-4xl mb-2" />{" "}
+                  <LiaFileInvoiceDollarSolid className="hidden lg:block text-2xl lg:text-4xl mb-2" />{" "}
                   {/* Hidden on large screens */}
                   <h2 className="text-xs lg:text-lg font-semibold">Invoices</h2>
                 </div>
@@ -155,7 +140,7 @@ const Dashboard = () => {
                 }
               >
                 <div className="flex flex-col items-center justify-center text-center p-2 lg:p-4">
-                  <CiSettings className="block lg:hidden text-2xl lg:text-4xl mb-2" />{" "}
+                  <CiSettings className="hidden lg:block text-2xl lg:text-4xl mb-2" />{" "}
                   {/* Hidden on large screens */}
                   <h2 className="text-xs lg:text-lg font-semibold">
                     Profile Setting
