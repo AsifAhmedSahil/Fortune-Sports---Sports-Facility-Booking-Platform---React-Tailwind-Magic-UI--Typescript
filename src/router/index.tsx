@@ -102,6 +102,11 @@ const router = createBrowserRouter([
         path:"/dashboard/statistics",
         element : <Statistics/>
        },
+       {
+        index:true,
+        
+        element : <Statistics/>
+       },
         
       ]
     }

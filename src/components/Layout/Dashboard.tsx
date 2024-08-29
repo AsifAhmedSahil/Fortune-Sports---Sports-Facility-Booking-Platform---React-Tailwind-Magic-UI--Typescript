@@ -13,7 +13,6 @@ import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 
 const Dashboard = () => {
   const { user } = useAppSelector((state: RootState) => state.user);
-  
 
   return (
     <div className="w-full min-h-screen flex flex-col">
@@ -31,9 +30,22 @@ const Dashboard = () => {
       <div className="bg-black flex-1">
         <div className="w-full lg:w-[70%] lg:mx-auto px-4 py-6">
           {user?.role === "admin" ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
-              
-             
+            <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-2">
+              <NavLink
+                to="/dashboard/statistics"
+                className={({ isActive }) =>
+                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
+                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
+                  } hover:shadow-xl hover:scale-105`
+                }
+              >
+                <div className="flex flex-col items-center justify-center text-center p-2 lg:p-4">
+                  <MdAddToPhotos className="hidden lg:block text-2xl lg:text-4xl mb-2" />
+                  <h2 className="text-xs lg:text-lg font-semibold">
+                    Statistics
+                  </h2>
+                </div>
+              </NavLink>
               <NavLink
                 to="/dashboard/add-facilities"
                 className={({ isActive }) =>
@@ -54,7 +66,7 @@ const Dashboard = () => {
                 to="/dashboard/get-facilities"
                 className={({ isActive }) =>
                   `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? 'bg-green-700 text-white' : 'bg-white text-black'
+                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
                   } hover:shadow-xl hover:scale-105`
                 }
               >

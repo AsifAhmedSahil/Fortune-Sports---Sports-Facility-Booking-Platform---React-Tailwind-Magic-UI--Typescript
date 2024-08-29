@@ -77,9 +77,11 @@ console.log(file,"image****************")
 
   }
   return (
+    <>
+      <h2 className="text-4xl font-bold mb-4 text-white text-center ">Add New Facility</h2>
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg mt-12 mb-12">
-      <h2 className="text-2xl font-semibold mb-4">Add New Facility</h2>
       <form onSubmit={handleSubmit}>
+    
         <div className="grid gap-6 md:grid-cols-2">
           {/* Facility Name */}
           <div className="flex flex-col">
@@ -169,13 +171,14 @@ console.log(file,"image****************")
         <div className="mt-6 flex justify-end">
           <button
             type="submit"
-            className="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="text-white bg-gradient-to-br from-purple-900 to-purple-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 flex justify-center items-center gap-2"
           >
             Add Facility
           </button>
         </div>
       </form>
     </div>
+    </>
   );
 };
 
