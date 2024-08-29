@@ -62,52 +62,55 @@ export const Navbar = () => {
 
           {/* ****************************** For mobile menu *********************************** */}
           {mobileDrawerOpen && (
-            <div className="fixed right-0 z-20 top-20 bg-black text-white w-full p-12 flex flex-col justify-center items-center lg:hidden">
-              <ul>
-                {navItems.map((item, index) => (
-                  <li key={index} className="py-4">
-                    <a href={item.href}>{item.label}</a>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex space-x-6 mt-4">
-                <Link
-                  to="/dashboard/addItems"
-                  className="py-2 px-3 rounded-md bg-gradient-to-r from-green-500 to-green-800 text-white"
-                >
-                  DashBoard
-                </Link>
-              </div>
-            </div>
-          )}
+  <div className="fixed right-0 z-20 top-20 bg-black text-white w-full p-12 flex flex-col justify-center items-center lg:hidden">
+    <ul>
+      {navItems.map((item, index) => (
+        <li key={index} className="py-4">
+          {/* Use Link from react-router-dom */}
+          <Link to={item.href} className="text-white">
+            {item.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+    <div className="flex space-x-6 mt-4">
+      <Link
+        to="/dashboard/addItems"
+        className="py-2 px-3 rounded-md bg-gradient-to-r from-green-500 to-green-800 text-white"
+      >
+        Dashboard
+      </Link>
+    </div>
+  </div>
+)}
 
           {/* ********************************Desktop menu navigation ************************************* */}
 
           <nav className=" gap-8 items-center hidden sm:flex">
-            <a
-              href="/about"
+            <Link
+              to="/about"
               className="text-opacity-60 text-white hover:text-opacity-100  transition"
             >
               About Us
-            </a>
-            <a
-              href="/contact"
+            </Link>
+            <Link
+              to="/contact"
               className="text-opacity-60 text-white hover:text-opacity-100  transition"
             >
               Contacts
-            </a>
-            <a
-              href="/facilities"
+            </Link>
+            <Link
+              to="/facilities"
               className="text-opacity-60 text-white hover:text-opacity-100  transition"
             >
               Facilities
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/faq"
               className="text-opacity-60 text-white hover:text-opacity-100  transition"
             >
-              Help
-            </a>
+              FAQ
+            </Link>
           </nav>
           <div className="hidden lg:flex gap-4 ">
             {user && user.email ? (

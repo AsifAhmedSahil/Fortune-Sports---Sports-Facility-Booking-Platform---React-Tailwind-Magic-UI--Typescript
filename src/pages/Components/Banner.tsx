@@ -11,8 +11,8 @@ const Banner = () => {
 
       <div className="container relative">
         <div className="flex items-center justify-center">
-          <a
-            href="/about"
+          <Link
+            to="/about"
             className="inline-flex gap-3 border py-1 px-2 border-white/30 rounded-lg"
           >
             <span className="bg-[linear-gradient(to_right,#F87AFF,#FB93D0,#FFDD99,#C3F0B2,#2FD8FE)] text-transparent bg-clip-text [-webkit-background-clip:text]">
@@ -22,7 +22,7 @@ const Banner = () => {
               <span>Read more </span>
               <ArrowUpIcon />
             </span>
-          </a>
+          </Link>
         </div>
         <div className="flex justify-center mt-8">
           <div className="inline-flex relative">

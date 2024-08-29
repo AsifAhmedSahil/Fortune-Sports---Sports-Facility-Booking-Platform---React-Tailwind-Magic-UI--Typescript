@@ -77,8 +77,8 @@ const Contact = () => {
             {/* Contact Details */}
             <div className="mt-12 text-center ">
                 <h2 className="text-xl lg:text-2xl font-semibold mb-4">Contact Details</h2>
-                <p className="text-white">Phone: <a href="tel:+1234567890" className="text-white hover:underline">+1 (234) 567-890</a></p>
-                <p className="text-white">Email: <a href="mailto:support@example.com" className="text-white hover:underline">fortune.sports@gmail.com</a></p>
+                <p className="text-white">Phone: < href="tel:+1234567890" className="text-white hover:underline">+1 (234) 567-890</a></p>
+                <p className="text-white">Email: < href="mailto:support@example.com" className="text-white hover:underline">fortune.sports@gmail.com</a></p>
                 <p className="text-white">Address: Chandgaon Abashikh, Road No.12, Chittagong</p>
             </div>
         </div>

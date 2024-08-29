@@ -3,6 +3,7 @@ import MainLayout from "@/components/Layout/MainLayout";
 import ProtectedRoute from "@/components/Layout/ProtectedRoute";
 import About from "@/pages/About/AboutUs";
 import BookingDetails from "@/pages/Components/BookingDetails";
+import FAQ from "@/pages/Components/FAQ";
 import ProductDetails from "@/pages/Components/ProductDetails";
 import Contact from "@/pages/Contact/Contact";
 import AddAdmin from "@/pages/DashboardPages.tsx/AddAdmin";
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "faq",
+        element: <FAQ />,
       },
       {
         path: "facilities",

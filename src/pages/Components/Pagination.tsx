@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { FaAngleLeft,FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 interface PaginationProps {
@@ -25,8 +26,8 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <ul className="flex  justify-center items-center mt-10">
       <li>
-        <a
-          href="#"
+        <Link
+          to="#"
           onClick={() => {
             if (activePage > 1) {
               paginate(activePage - 1);
@@ -34,7 +35,7 @@ const Pagination: React.FC<PaginationProps> = ({
           }}
         >
           <FaAngleLeft className="mr-4 size-6" />
-        </a>
+        </Link>
       </li>
       {pageNumbers.map((number) => (
         <li
@@ -50,8 +51,8 @@ const Pagination: React.FC<PaginationProps> = ({
       ))}
 
 <li>
-        <a
-          href="#"
+        <Link
+          to="#"
           onClick={() => {
            
               paginate(activePage + 1);
@@ -59,7 +60,7 @@ const Pagination: React.FC<PaginationProps> = ({
           }}
         >
           <FaAngleRight className="ml-4 size-6" />
-        </a>
+        </Link>
       </li>
     </ul>
   );

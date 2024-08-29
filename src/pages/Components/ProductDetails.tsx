@@ -109,12 +109,12 @@ const ProductDetails = () => {
                 <p className="text-sm font-medium leading-none text-gray-500 dark:text-gray-400">
                   (5.0)
                 </p>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="text-sm font-medium leading-none text-gray-900 underline hover:no-underline dark:text-white"
                 >
                   345 Reviews
-                </a>
+                </Link>
               </div>
             </div>
             <p className="text-sm lg:text-xl font-bold mt-6">

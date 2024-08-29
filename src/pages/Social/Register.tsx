@@ -200,9 +200,9 @@ const Register = () => {
             <div className="mt-4 text-center">
               <p className="text-sm text-white">
                 Already Log In?{" "}
-                <a href="#" className="text-red-600 hover:underline">
+                <Link to="#" className="text-red-600 hover:underline">
                   Login
-                </a>
+                </Link>
               </p>
             </div>
           </Link>
