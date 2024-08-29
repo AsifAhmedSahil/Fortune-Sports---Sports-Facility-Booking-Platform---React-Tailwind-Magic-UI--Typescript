@@ -39,7 +39,7 @@ const Banner = () => {
                 alt=""
                 height={200}
                 width={200}
-                className="max-w-none"
+                className="max-w-none "
                 draggable="false"
               />
             </motion.div>

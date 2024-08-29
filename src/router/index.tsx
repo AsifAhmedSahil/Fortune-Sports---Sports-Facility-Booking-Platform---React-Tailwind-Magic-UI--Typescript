@@ -1,5 +1,6 @@
 import Dashboard from "@/components/Layout/Dashboard";
 import MainLayout from "@/components/Layout/MainLayout";
+import ProtectedRoute from "@/components/Layout/ProtectedRoute";
 import About from "@/pages/About/AboutUs";
 import BookingDetails from "@/pages/Components/BookingDetails";
 import ProductDetails from "@/pages/Components/ProductDetails";
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "facilities",
-        element: <Facilities />,
+        element: <ProtectedRoute><Facilities /></ProtectedRoute>,
       },
       {
         path: "login",
