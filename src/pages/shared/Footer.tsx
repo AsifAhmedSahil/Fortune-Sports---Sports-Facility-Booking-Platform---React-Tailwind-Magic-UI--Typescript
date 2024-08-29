@@ -41,7 +41,7 @@ const Footer = () => {
                     className="hover:underline"
                   >
                     Trainers
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
