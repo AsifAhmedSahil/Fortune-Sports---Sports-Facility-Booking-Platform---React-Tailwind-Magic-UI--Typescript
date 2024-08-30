@@ -8,7 +8,7 @@ import { useAppDispatch } from '@/redux/hooks';
 // import { setEmail, setPassword } from '@/redux/features/loginSlice';
 import { useLoginMutation } from '@/redux/api/auth/authApi';
 import {jwtDecode} from 'jwt-decode';
-import { setToken, setUser } from '@/redux/features/userSlice';
+import { setRole, setToken, setUser } from '@/redux/features/userSlice';
 import { toast } from 'sonner';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
@@ -35,12 +35,14 @@ const Login: React.FC = () => {
     try {
       const { email, password } = data;
       const { data: loginData } = await login({ email, password });
-      const { token } = loginData;
+      const { token ,data:logindata} = loginData;
 
       const user = jwtDecode(token);
       console.log('Logged in user', user);
       toast.success('Logged in successfully', { duration: 2000 });
       dispatch(setToken(token));
+      dispatch(setRole(logindata.role));
+      
       dispatch(setUser(user));
       navigate('/');
     } catch (error) {

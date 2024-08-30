@@ -1,3 +1,4 @@
+import AdminRoute from "@/components/Layout/AdminRoute";
 import Dashboard from "@/components/Layout/Dashboard";
 import MainLayout from "@/components/Layout/MainLayout";
 import ProtectedRoute from "@/components/Layout/ProtectedRoute";
@@ -78,31 +79,31 @@ const router = createBrowserRouter([
       children: [
        {
         path:"/dashboard/my-bookings",
-        element : <MyBookings/>
+        element :<ProtectedRoute><MyBookings/></ProtectedRoute> 
        },
        {
         path:"/dashboard/invoices",
-        element : <Invoices/>
+        element : <ProtectedRoute><Invoices/></ProtectedRoute>
        },
        {
         path:"/dashboard/profile-setting",
-        element : <ProfileSetting/>
+        element :<ProtectedRoute> <ProfileSetting/></ProtectedRoute>
        },
        {
         path:"/dashboard/add-facilities",
-        element : <AddFacilities/>
+        element : <AdminRoute><AddFacilities/></AdminRoute> 
        },
        {
         path:"/dashboard/get-facilities",
-        element : <GetFacilities/>
+        element :<AdminRoute><GetFacilities/></AdminRoute> 
        },
        {
         path:"/dashboard/all-bookings",
-        element : <AllBookings/>
+        element :<AdminRoute><AllBookings/></AdminRoute> 
        },
        {
         path:"/dashboard/add-admin",
-        element : <AddAdmin/>
+        element :<AdminRoute><AddAdmin/></AdminRoute> 
        },
        {
         path:"/dashboard/statistics",
