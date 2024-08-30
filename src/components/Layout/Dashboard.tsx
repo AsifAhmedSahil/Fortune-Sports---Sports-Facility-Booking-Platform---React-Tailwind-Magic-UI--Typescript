@@ -13,24 +13,28 @@ import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 
 const Dashboard = () => {
   const { user } = useAppSelector((state: RootState) => state.user);
+  console.log(user)
 
   return (
     <div className="w-full min-h-screen flex flex-col">
       <Navbar />
 
       <div className="w-full pt-6  h-[150px] lg:h-[200px] bg-black text-white bg-[linear-gradient(to_bottom,#000,#200D42_34%,#A46EDB_100%)] flex-col text-center  items-center justify-center">
+        
         <h2 className="text-xl md:text-5xl lg:text-6xl font-bold capitalize pb-5">
           {user?.role} Dashboard
         </h2>
         <h2 className="text-sm lg:text-xl font-semibold">
           <h3 className="text-2xl">👋 Welcome, {user?.name}</h3>
         </h2>
+        
       </div>
 
       <div className="bg-black flex-1">
-        <div className="w-full lg:w-[70%] lg:mx-auto px-4 py-6">
+        <div className="w-full lg:w-[70%] lg:mx-auto px-4 py-6  ">
+          <div className="flex justify-center items-center pl-0 md:pl-0 lg:pl-20 ">
           {user?.role === "admin" ? (
-            <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-2">
+            <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-2 " >
               <NavLink
                 to="/dashboard/statistics"
                 className={({ isActive }) =>
@@ -112,12 +116,27 @@ const Dashboard = () => {
               </NavLink>
             </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 ">
+              <NavLink
+                to="/dashboard/statistics"
+                className={({ isActive }) =>
+                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
+                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
+                  } hover:shadow-xl hover:scale-105`
+                }
+              >
+                <div className="flex flex-col items-center justify-center text-center p-2 lg:p-4">
+                  <MdAddToPhotos className="hidden lg:block text-2xl lg:text-4xl mb-2" />
+                  <h2 className="text-xs lg:text-lg font-semibold">
+                    Statistics
+                  </h2>
+                </div>
+              </NavLink>
               <NavLink
                 to="/dashboard/my-bookings"
                 className={({ isActive }) =>
-                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer bg-white  rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black "
+                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
+                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -132,8 +151,8 @@ const Dashboard = () => {
               <NavLink
                 to="/dashboard/invoices"
                 className={({ isActive }) =>
-                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer bg-white rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black"
+                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
+                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -146,8 +165,8 @@ const Dashboard = () => {
               <NavLink
                 to="/dashboard/profile-setting"
                 className={({ isActive }) =>
-                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer bg-white rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black"
+                  `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
+                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -161,6 +180,7 @@ const Dashboard = () => {
               </NavLink>
             </div>
           )}
+          </div>
         </div>
 
         <div className="my-4 border-t border-gray-300 maxw"></div>

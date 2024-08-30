@@ -24,7 +24,7 @@ const authApi = baseApi.injectEndpoints({
                 body:userInfo
             })
         }),
-        getUser: builder.query({
+        getUserData: builder.query({
             query: (email) => ({
                 
                 url: `/auth/${(email)}`, // Append the email to the URL
@@ -34,4 +34,4 @@ const authApi = baseApi.injectEndpoints({
     })
 })
 
-export const {useSignUpMutation,useLoginMutation,useGetUserQuery,useAdminSignUpMutation} = authApi
+export const {useSignUpMutation,useLoginMutation,useGetUserDataQuery,useAdminSignUpMutation} = authApi

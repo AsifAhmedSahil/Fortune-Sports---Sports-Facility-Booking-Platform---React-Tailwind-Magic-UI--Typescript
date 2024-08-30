@@ -23,7 +23,7 @@ type LoaderData = {
 };
 
 
-
+  
 const BookingDetails = () => {
   const { data } = useLoaderData() as LoaderData;
   console.log(data,"********************")

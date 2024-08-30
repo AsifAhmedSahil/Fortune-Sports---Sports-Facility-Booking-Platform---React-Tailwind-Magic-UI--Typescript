@@ -18,7 +18,7 @@ import Statistics from "@/pages/DashboardPages.tsx/Statistics";
 import Facilities from "@/pages/Facilities/Facilities";
 import Home from "@/pages/Home/Home";
 import NotFound from "@/pages/shared/NotFound";
-import Login from "@/pages/Social/Login";
+import Login from "@/pages/Social/Login"
 import Register from "@/pages/Social/Register";
 
 import { createBrowserRouter } from "react-router-dom";
