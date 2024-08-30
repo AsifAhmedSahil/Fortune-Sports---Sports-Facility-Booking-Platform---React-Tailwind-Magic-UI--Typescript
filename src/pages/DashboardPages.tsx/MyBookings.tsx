@@ -2,9 +2,9 @@
 import { useDeleteBookingMutation, useGetSingleBookingsQuery } from "@/redux/api/bookingsApi/bookingsApi"
 import { useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
-import { FaEdit } from "react-icons/fa";
+
 import { FcCancel } from "react-icons/fc";
-import { Link } from "react-router-dom";
+
 import { toast } from "sonner";
 import Swal from "sweetalert2";
 
@@ -53,7 +53,7 @@ const MyBookings = () => {
             <th className="px-4 py-3 text-left">End</th>
             <th className="px-4 py-3 text-left">Payable Amount</th>
             <th className="px-4 py-3 text-left">Status</th>
-            <th className="px-4 py-3 text-center">Update</th>
+            
             <th className="px-4 py-3 text-center">Delete</th>
           </tr>
         </thead>
@@ -69,13 +69,7 @@ const MyBookings = () => {
             <td className="px-4  py-4  text-left">{item.endTime}</td>
             <td className="px-4 py-4 whitespace-nowrap ">Tk.{item.payableAmount}/=</td>
             <td className="px-4 py-4 whitespace-nowrap">{item.isBooked}</td>
-            <td className="px-4 py-4 whitespace-nowrap text-center">
-              <Link to={`/dashboard/update-booking/${item._id}`}>
-                <button className="text-red-500 ">
-                  <FaEdit />
-                </button>
-              </Link>
-            </td>
+            
             <td className="px-4 py-4 whitespace-nowrap text-center">
               <button
                 onClick={() => handleDeleteItem(item)}

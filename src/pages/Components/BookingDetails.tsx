@@ -47,7 +47,7 @@ const BookingDetails = () => {
         // Check if the selected date is in the past
         if (startDate < currentDate) {
             console.error('Selected date is in the past. Please select today or a future date.');
-            toast.error("Selected date is in the past. Please select today or a future date.",{duration:3000 ,style: {
+            toast.error("Selected date is in the past. Please select today or a future date.",{id: 'availability-error',duration:3000 ,style: {
               backgroundColor: '#f44336', // Red background color
               color: '#000' // White text color
           }})
@@ -65,7 +65,7 @@ const BookingDetails = () => {
         setCheckingAvailability(true);
 
         try {
-            const response = await fetch(`http://localhost:5000/api/check-availability?date=${formattedDate}&facility=${data._id}`);
+            const response = await fetch(`https://batch-3-assignemnt-3.vercel.app/api/check-availability?date=${formattedDate}&facility=${data._id}`);
             if (response.ok) {
                 const result = await response.json();
                 if (result.success && result.data.success) {
@@ -142,7 +142,7 @@ const BookingDetails = () => {
 
       // Uncomment this when ready to integrate with API
       const res = await createBooking(formData);
-      toast.loading("Create Booking...")
+      toast.loading("Creating Booking...", { id: 'booking-loading' });
       console.log(res);
 
       if(res.data.success){

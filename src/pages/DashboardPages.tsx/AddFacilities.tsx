@@ -38,6 +38,11 @@ const AddFacilities = () => {
       return;
     }
 
+    const loadingToastId = "uploading-toast";
+    toast.loading("Uploading image, please wait...", {
+      id: loadingToastId,
+    });
+
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "myCloud");
@@ -77,14 +82,22 @@ const AddFacilities = () => {
       const result = await addFacility(facilityData);
       console.log("Facility data:", facilityData);
 
-      toast.success("Facility Added Successfully", { duration: 2000 });
+      // Update toast
+      toast.success("Facility added successfully.", {
+        id: loadingToastId,
+      });
       console.log(result)
 
 
-      if(result.data.success === 'true'){
+      if (result.data?.success) {
+        toast.success("Facility added successfully.", {
+          id: loadingToastId,
+        });
         dispatch(resetFacility());
       } else {
-        toast.error("something went wrong ! try again")
+        toast.error("Something went wrong! Try again.", {
+          id: loadingToastId,
+        });
       }
 
       // Reset facility state

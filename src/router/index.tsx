@@ -15,7 +15,7 @@ import Invoices from "@/pages/DashboardPages.tsx/Invoices";
 import MyBookings from "@/pages/DashboardPages.tsx/MyBookings";
 import ProfileSetting from "@/pages/DashboardPages.tsx/ProfileSetting";
 import Statistics from "@/pages/DashboardPages.tsx/Statistics";
-import UpdateBookings from "@/pages/DashboardPages.tsx/UpdateBookings";
+
 import UpdateFacility from "@/pages/DashboardPages.tsx/UpdateFacility";
 
 import Facilities from "@/pages/Facilities/Facilities";
@@ -63,12 +63,12 @@ const router = createBrowserRouter([
       {
         path: "/facilities/:id",
         element: <ProductDetails />,
-        loader: ({params}) => fetch(`http://localhost:5000/api/facility/${params.id}`)
+        loader: ({params}) => fetch(`https://batch-3-assignemnt-3.vercel.app/api/facility/${params.id}`)
       },
       {
         path: "/facilities/booking-details/:id",
         element: <BookingDetails />,
-        loader: ({params}) => fetch(`http://localhost:5000/api/facility/${params.id}`)
+        loader: ({params}) => fetch(`https://batch-3-assignemnt-3.vercel.app/api/facility/${params.id}`)
 
         
       },
@@ -83,10 +83,7 @@ const router = createBrowserRouter([
         path:"/dashboard/my-bookings",
         element :<ProtectedRoute><MyBookings/></ProtectedRoute> 
        },
-       {
-        path:"/dashboard/update-booking/:id",
-        element :<ProtectedRoute><UpdateBookings/></ProtectedRoute> 
-       },
+       
        {
         path:"/dashboard/update-facility/:id",
         element :<UpdateFacility/>

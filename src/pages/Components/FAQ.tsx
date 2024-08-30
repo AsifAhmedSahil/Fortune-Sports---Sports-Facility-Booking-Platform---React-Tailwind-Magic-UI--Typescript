@@ -1,5 +1,5 @@
 import { MinusIcon, PlusIcon } from 'lucide-react';
-import React, { useState } from 'react';
+import  { useState } from 'react';
  // Ensure you have these icons installed or use similar
 
 const FAQ = () => {

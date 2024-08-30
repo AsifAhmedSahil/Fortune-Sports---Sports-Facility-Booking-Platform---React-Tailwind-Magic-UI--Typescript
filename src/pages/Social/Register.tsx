@@ -4,14 +4,8 @@ import { useForm, Controller } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import registerGif from "@/Animation - 1724608571023.json";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import {
-  setAddress,
-  setEmail,
-  setName,
-  setPassword,
-  setPhone,
-} from "@/redux/features/registerSlice";
+import {  useAppSelector } from "@/redux/hooks";
+
 import { RootState } from "@/redux/store";
 
 import { toast } from "sonner";
@@ -19,7 +13,7 @@ import { useSignUpMutation } from "@/redux/api/auth/authApi";
 
 // Define validation regex
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_REGEX = /^\d{10}$/;
+
 
 type FormValues = {
   name: string;
@@ -33,7 +27,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [file, setFile] = useState<File | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
-  const dispatch = useAppDispatch();
+  
   const { name, email, password, phone, address } = useAppSelector(
     (state: RootState) => state.register
   );
@@ -42,7 +36,7 @@ const Register = () => {
   const {
     control,
     handleSubmit,
-    setValue,
+    
     formState: { errors }
   } = useForm<FormValues>({
     defaultValues: {
@@ -70,6 +64,11 @@ const Register = () => {
       return;
     }
 
+    const loadingToastId = "uploading-toast";
+    toast.loading("Uploading photo, please wait...", {
+      id: loadingToastId,
+    });
+
     const formData = new FormData();
     formData.append('file', file as File);
     formData.append("upload_preset", "myCloud");
@@ -89,7 +88,9 @@ const Register = () => {
       const image = dataFromCloud.secure_url;
 
       await signup({ ...data, image });
-      toast.success("Registration successful", { duration: 2000 });
+      toast.success("Registration successful", {
+        id: loadingToastId,
+      });
       navigate("/login");
     } catch (error) {
       toast.error("Something went wrong. Please try again later.", { duration: 2000 });
