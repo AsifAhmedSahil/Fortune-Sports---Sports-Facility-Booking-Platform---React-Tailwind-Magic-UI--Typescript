@@ -36,6 +36,8 @@ const AddAdmin = () => {
           toast.error("Please select an image file.");
           return;
         }
+
+        toast.loading("Uploading image...", { id: 'image-upload' });
     
         const formData = new FormData();
         formData.append("file", file);
@@ -73,7 +75,9 @@ const AddAdmin = () => {
             name,email,password,phone,address,image
         )
         const user = await adminSignUp({name,email,password,phone,address,image})
-        toast.success("admin added successfully",{duration:2000})
+        toast.dismiss('image-upload');
+        toast.success("Admin added successfully", { id: 'admin-success', duration: 2000 });
+        
         console.log(user)
         // navigate("/login")
 
