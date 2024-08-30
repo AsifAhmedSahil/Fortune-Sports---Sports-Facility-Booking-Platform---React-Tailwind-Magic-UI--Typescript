@@ -78,11 +78,19 @@ const AddFacilities = () => {
       console.log("Facility data:", facilityData);
 
       toast.success("Facility Added Successfully", { duration: 2000 });
+      console.log(result)
+
+
+      if(result.data.success === 'true'){
+        dispatch(resetFacility());
+      } else {
+        toast.error("something went wrong ! try again")
+      }
 
       // Reset facility state
-      if (result) {
-        dispatch(resetFacility());
-      }
+      // if (result) {
+      //   dispatch(resetFacility());
+      // }
     } catch (error) {
       console.error("Error uploading image or adding facility:", error);
       toast.error("Failed to add facility. Please try again.");

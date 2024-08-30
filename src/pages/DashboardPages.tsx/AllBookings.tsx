@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useDeleteBookingMutation, useGetBookingsQuery } from '@/redux/api/bookingsApi/bookingsApi';
-import { FaEdit, FaTrashAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import {  FaTrashAlt } from 'react-icons/fa';
+
 import Swal from 'sweetalert2';
 import { toast } from 'sonner';
 
