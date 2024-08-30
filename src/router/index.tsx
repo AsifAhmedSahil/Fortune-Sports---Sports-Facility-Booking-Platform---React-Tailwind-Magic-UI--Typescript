@@ -15,6 +15,8 @@ import Invoices from "@/pages/DashboardPages.tsx/Invoices";
 import MyBookings from "@/pages/DashboardPages.tsx/MyBookings";
 import ProfileSetting from "@/pages/DashboardPages.tsx/ProfileSetting";
 import Statistics from "@/pages/DashboardPages.tsx/Statistics";
+import UpdateBookings from "@/pages/DashboardPages.tsx/UpdateBookings";
+import UpdateFacility from "@/pages/DashboardPages.tsx/UpdateFacility";
 
 import Facilities from "@/pages/Facilities/Facilities";
 import Home from "@/pages/Home/Home";
@@ -80,6 +82,14 @@ const router = createBrowserRouter([
        {
         path:"/dashboard/my-bookings",
         element :<ProtectedRoute><MyBookings/></ProtectedRoute> 
+       },
+       {
+        path:"/dashboard/update-booking/:id",
+        element :<ProtectedRoute><UpdateBookings/></ProtectedRoute> 
+       },
+       {
+        path:"/dashboard/update-facility/:id",
+        element :<UpdateFacility/>
        },
        {
         path:"/dashboard/invoices",

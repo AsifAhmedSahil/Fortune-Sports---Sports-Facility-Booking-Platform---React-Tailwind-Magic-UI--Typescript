@@ -29,10 +29,10 @@ const authApi = baseApi.injectEndpoints({
             ,providesTags:["Bookings"]
         }),
         updateFacility: builder.mutation({
-            query:(facilityData) =>({
-                url:"/facility/",
-                method:"POST",
-                body:facilityData
+            query:({updatedData,id}) =>({
+                url:`/facility/${id}`,
+                method:"PUT",
+                body:updatedData
             }),
             invalidatesTags:["Bookings"]
         }),

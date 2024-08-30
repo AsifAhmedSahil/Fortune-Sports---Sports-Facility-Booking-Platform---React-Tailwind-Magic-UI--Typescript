@@ -77,7 +77,7 @@ const GetFacilities = () => {
             <td className="px-4 text-center py-4  text-left">{truncateDescription(item.description ,100)}</td>
             <td className="px-4 py-4 whitespace-nowrap">Tk.{item.pricePerHour}</td>
             <td className="px-4 py-4 whitespace-nowrap text-center">
-              <Link to={`/dashboard/updateItem/${item._id}`}>
+              <Link to={`/dashboard/update-facility/${item._id}`}>
                 <button className="text-red-500 ">
                   <FaEdit />
                 </button>

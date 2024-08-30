@@ -70,7 +70,7 @@ const MyBookings = () => {
             <td className="px-4 py-4 whitespace-nowrap ">Tk.{item.payableAmount}/=</td>
             <td className="px-4 py-4 whitespace-nowrap">{item.isBooked}</td>
             <td className="px-4 py-4 whitespace-nowrap text-center">
-              <Link to={`/dashboard/updateItem/${item._id}`}>
+              <Link to={`/dashboard/update-booking/${item._id}`}>
                 <button className="text-red-500 ">
                   <FaEdit />
                 </button>
