@@ -39,7 +39,7 @@ const Dashboard = () => {
                 to="/dashboard/statistics"
                 className={({ isActive }) =>
                   `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
+                    isActive ? "bg-purple-700 text-white" : "bg-white text-black"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -54,7 +54,7 @@ const Dashboard = () => {
                 to="/dashboard/add-facilities"
                 className={({ isActive }) =>
                   `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer  rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black bg-white"
+                    isActive ? "bg-purple-700 text-white" : "text-black bg-white"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -70,7 +70,7 @@ const Dashboard = () => {
                 to="/dashboard/get-facilities"
                 className={({ isActive }) =>
                   `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
+                    isActive ? "bg-purple-700 text-white" : "bg-white text-black"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -86,7 +86,7 @@ const Dashboard = () => {
                 to="/dashboard/all-bookings"
                 className={({ isActive }) =>
                   `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer  rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black bg-white"
+                    isActive ? "bg-purple-700 text-white" : "text-black bg-white"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -102,7 +102,7 @@ const Dashboard = () => {
                 to="/dashboard/add-admin"
                 className={({ isActive }) =>
                   `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer  rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "text-black bg-white"
+                    isActive ? "bg-purple-700 text-white" : "text-black bg-white"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -121,7 +121,7 @@ const Dashboard = () => {
                 to="/dashboard/statistics"
                 className={({ isActive }) =>
                   `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
+                    isActive ? "bg-purple-700 text-white" : "bg-white text-black"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -136,7 +136,7 @@ const Dashboard = () => {
                 to="/dashboard/my-bookings"
                 className={({ isActive }) =>
                   `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
+                    isActive ? "bg-purple-700 text-white" : "bg-white text-black"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -152,7 +152,7 @@ const Dashboard = () => {
                 to="/dashboard/invoices"
                 className={({ isActive }) =>
                   `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
+                    isActive ? "bg-purple-700 text-white" : "bg-white text-black"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
@@ -166,7 +166,7 @@ const Dashboard = () => {
                 to="/dashboard/profile-setting"
                 className={({ isActive }) =>
                   `flex items-center justify-center h-16 lg:h-32 w-full lg:w-48 m-2 lg:m-4 cursor-pointer rounded-lg shadow-lg transition-transform transform ${
-                    isActive ? "bg-green-700 text-white" : "bg-white text-black"
+                    isActive ? "bg-purple-700 text-white" : "bg-white text-black"
                   } hover:shadow-xl hover:scale-105`
                 }
               >
