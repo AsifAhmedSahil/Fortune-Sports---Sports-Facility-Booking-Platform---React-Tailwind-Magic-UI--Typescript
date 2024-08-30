@@ -9,7 +9,7 @@ import { setAddress, setEmail, setName, setPassword, setPhone } from "@/redux/fe
 import { RootState } from "@/redux/store"
 import { useAdminSignUpMutation } from "@/redux/api/auth/authApi"
 import { toast } from "sonner"
-import axios from "axios"
+
 
 
 const AddAdmin = () => {
@@ -21,42 +21,59 @@ const AddAdmin = () => {
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files ? e.target.files[0] : null;
-      setFile(file);
-      
-      // Perform additional actions with the file if needed
-      // e.g., dispatch an action or upload the file
-  };
+      if (file) {
+        console.log(file, "Selected file");
+        setFile(file);
+        console.log("File type:", file?.type);
+        console.log("File size:", file?.size);
+      }
+    };
 
     const handleSubmit =async (e:React.FormEvent) =>{
         e.preventDefault()
 
-
+        if (!file) {
+          toast.error("Please select an image file.");
+          return;
+        }
+    
         const formData = new FormData();
-    formData.append('image', file!);
+        formData.append("file", file);
+        formData.append("upload_preset", "myCloud");
+        formData.append("cloud_name", "djbpo9xg5");
+    
+         // Upload image to Cloudinary
+         const response = await fetch(
+          "https://api.cloudinary.com/v1_1/djbpo9xg5/image/upload",
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+    
+        // Check if the response is OK
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    
+        // Parse the JSON response
+        const data = await response.json();
+        const image = data.secure_url;
+    
+        console.log("Uploaded image URL:", image);
+    
 
-    // Upload image to ImgBB
-    const response = await axios.post(
-      'https://api.imgbb.com/1/upload?key=36a0c300dd8725a59ef1d1b64fcdb73f',
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }
-    );
+    
 
-    // Log the response and extract the image URL
-    console.log('Image upload response:', response.data);
-    console.log(response.data.data.url)
-    const image = response.data.data.url
+ 
 
 
 
         console.log(
-            name,email,password,phone,address
+            name,email,password,phone,address,image
         )
         const user = await adminSignUp({name,email,password,phone,address,image})
-        toast.success("admin adde successfully",{duration:2000})
+        toast.success("admin added successfully",{duration:2000})
         console.log(user)
         // navigate("/login")
 

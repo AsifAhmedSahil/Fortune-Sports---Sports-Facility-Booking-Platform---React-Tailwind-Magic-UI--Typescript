@@ -52,7 +52,7 @@ const AllBookings = () => {
             <th className="px-4 py-3 text-left">End</th>
             <th className="px-4 py-3 text-left">Name</th>
             <th className="px-4 py-3 text-left">Field Name</th>
-            <th className="px-4 py-3 text-center">Update</th>
+            
             <th className="px-4 py-3 text-center">Delete</th>
           </tr>
         </thead>
@@ -65,13 +65,7 @@ const AllBookings = () => {
               <td className="px-4 py-4 whitespace-nowrap text-left">{item.endTime}</td>
               <td className="px-4 py-4 whitespace-nowrap">{item.user?.name}</td>
               <td className="px-4 py-4 whitespace-nowrap">{item.facility?.name}</td>
-              <td className="px-4 py-4 whitespace-nowrap text-center">
-                <Link to={`/dashboard/updateItem/${item._id}`}>
-                  <button className="text-red-500">
-                    <FaEdit />
-                  </button>
-                </Link>
-              </td>
+              
               <td className="px-4 py-4 whitespace-nowrap text-center">
                 <button
                   onClick={() => handleDeleteItem(item)}
