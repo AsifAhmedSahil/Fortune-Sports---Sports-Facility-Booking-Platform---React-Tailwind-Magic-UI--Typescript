@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 // import { useGetSingleFacilityQuery } from "@/redux/api/facility/facilityApi";
+import { useAppSelector } from "@/redux/hooks";
+import { RootState } from "@/redux/store";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -23,6 +25,8 @@ const ProductDetails = () => {
   // const {} = item.data 
   const {image,pricePerHour,name,location,_id,description} = item.data as ProductData
   console.log(item.data)
+  const userRole = useAppSelector((state: RootState) => state.user.role);
+  const showButton = userRole !== 'admin';
   // const { id } = useParams(); // Extract ID from URL
   // console.log('ID from URL:', id);
   // const id = "66cdec0df0587d060e88f293"
@@ -122,17 +126,20 @@ const ProductDetails = () => {
             </p>
 
          <Link to={`/facilities/booking-details/${_id}`}>
-         <div className="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
-              <button
-                type="button"
-                className="text-white flex items-center justify-center gap-2 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm lg:text-lg px-5 py-2.5 text-center me-2 mb-2"
-              >
-                Book Now{" "}
-                <span className="animate-ping duration-1">
-                  <FaLongArrowAltRight />
-                </span>
-              </button>
-            </div>
+         {/* Conditionally render the button based on the user role */}
+      {showButton && (
+        <div className="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
+          <button
+            type="button"
+            className="text-white flex items-center justify-center gap-2 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm lg:text-lg px-5 py-2.5 text-center me-2 mb-2"
+          >
+            Book Now{" "}
+            <span className="animate-ping duration-1">
+              <FaLongArrowAltRight />
+            </span>
+          </button>
+        </div>
+      )}
          </Link>
 
             <hr className="my-6 md:my-8 border-gray-200 dark:border-gray-800" />

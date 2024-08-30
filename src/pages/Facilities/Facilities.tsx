@@ -6,7 +6,7 @@ import { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 
 const Facilities = () => {
-  const { data } = useGetFacilityQuery(undefined);
+  const { data ,isLoading} = useGetFacilityQuery(undefined);
   const facilities = data?.data;
   console.log(facilities);
 
@@ -41,6 +41,12 @@ const Facilities = () => {
 
     return matchesQuery && matchesPrice && !facility.isDeleted;
   });
+
+  if(isLoading){
+    <div className="text-center text-lg text-white">
+      Loading...
+    </div>
+  }
 
   return (
     <div className="bg-black text-white bg-gradient-to-b from-black to-[#5D2CA8] h-full pt-12 pb-12">

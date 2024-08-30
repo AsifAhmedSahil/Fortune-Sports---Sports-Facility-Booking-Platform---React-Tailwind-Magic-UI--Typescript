@@ -41,39 +41,54 @@ const BookingDetails = () => {
 
   const handleCheckAvailability = async () => {
     if (startDate) {
-      const year = startDate.getFullYear();
-      const month = String(startDate.getMonth() + 1).padStart(2, '0');
-      const day = String(startDate.getDate()).padStart(2, '0');
-      const formattedDate = `${year}-${month}-${day}`;
+        const currentDate = new Date(); // Get the current date
+        currentDate.setHours(0, 0, 0, 0); // Set time to midnight to compare only date parts
 
-      console.log('Selected Date:', formattedDate);
-
-      setCheckingAvailability(true);
-
-      try {
-        const response = await fetch(`http://localhost:5000/api/check-availability?date=${formattedDate}&facility=${data._id}`);
-        if (response.ok) {
-          const result = await response.json();
-          if (result.success && result.data.success) {
-            setAvailableTimeSlots(result.data.data);
-          } else {
-            console.error('Error:', result.message || 'No available slots found.');
-            setAvailableTimeSlots([]); // Clear the slots if no data or error
-          }
-        } else {
-          console.error('Error fetching availability:', response.statusText);
-          setAvailableTimeSlots([]); // Clear the slots if response is not ok
+        // Check if the selected date is in the past
+        if (startDate < currentDate) {
+            console.error('Selected date is in the past. Please select today or a future date.');
+            toast.error("Selected date is in the past. Please select today or a future date.",{duration:3000 ,style: {
+              backgroundColor: '#f44336', // Red background color
+              color: '#000' // White text color
+          }})
+            // Optionally, you can show a user-friendly message here
+            return; // Exit the function
         }
-      } catch (error) {
-        console.error('Error fetching availability:', error);
-        setAvailableTimeSlots([]); // Clear the slots in case of error
-      }
 
-      setCheckingAvailability(false);
+        const year = startDate.getFullYear();
+        const month = String(startDate.getMonth() + 1).padStart(2, '0');
+        const day = String(startDate.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+
+        console.log('Selected Date:', formattedDate);
+
+        setCheckingAvailability(true);
+
+        try {
+            const response = await fetch(`http://localhost:5000/api/check-availability?date=${formattedDate}&facility=${data._id}`);
+            if (response.ok) {
+                const result = await response.json();
+                if (result.success && result.data.success) {
+                    setAvailableTimeSlots(result.data.data);
+                } else {
+                    console.error('Error:', result.message || 'No available slots found.');
+                    setAvailableTimeSlots([]); // Clear the slots if no data or error
+                }
+            } else {
+                console.error('Error fetching availability:', response.statusText);
+                setAvailableTimeSlots([]); // Clear the slots if response is not ok
+            }
+        } catch (error) {
+            console.error('Error fetching availability:', error);
+            setAvailableTimeSlots([]); // Clear the slots in case of error
+        }
+
+        setCheckingAvailability(false);
     } else {
-      console.log('No date selected');
+        console.log('No date selected');
     }
-  };
+};
+
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
