@@ -4,6 +4,14 @@
 
 Welcome to the **Sports Facility Booking Platform**! This project provides a robust solution for booking sports facilities with a user-friendly interface and powerful backend functionalities. Ideal for sports enthusiasts and facility managers alike, the platform ensures a seamless experience for managing and booking sports venues.
 
+## Admin Login Credentials
+Email:  sahil@asif.com
+Password: 123456
+
+## User Login Credentials
+Email:  19300@eastdelta.edu.bd
+Password: 123456
+
 ## Project Description
 
 The Sports Facility Booking Platform is designed to facilitate the booking of various sports facilities. Users can browse available facilities, check availability, and make bookings through a modern, intuitive interface. The platform supports both users and administrators with dedicated dashboards for managing bookings and facility details. Key features include secure authentication, real-time availability checking, and payment integration.
