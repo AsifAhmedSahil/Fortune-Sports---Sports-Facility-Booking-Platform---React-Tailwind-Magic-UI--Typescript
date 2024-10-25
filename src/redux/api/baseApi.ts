@@ -6,7 +6,7 @@ import { RootState } from "../store";
 
 const baseQuery = fetchBaseQuery(
     { 
-        baseUrl: 'https://batch-3-assignemnt-3.vercel.app/api' ,
+        baseUrl: 'http://localhost:5000/api' ,
         credentials: 'include',
         prepareHeaders: (headers,{getState}) =>{
             const token = (getState() as RootState).user.token

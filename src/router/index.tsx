@@ -63,12 +63,12 @@ const router = createBrowserRouter([
       {
         path: "/facilities/:id",
         element: <ProductDetails />,
-        loader: ({params}) => fetch(`https://batch-3-assignemnt-3.vercel.app/api/facility/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/api/facility/${params.id}`)
       },
       {
         path: "/facilities/booking-details/:id",
         element: <BookingDetails />,
-        loader: ({params}) => fetch(`https://batch-3-assignemnt-3.vercel.app/api/facility/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/api/facility/${params.id}`)
 
         
       },

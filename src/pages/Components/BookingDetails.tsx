@@ -65,7 +65,7 @@ const BookingDetails = () => {
         setCheckingAvailability(true);
 
         try {
-            const response = await fetch(`https://batch-3-assignemnt-3.vercel.app/api/check-availability?date=${formattedDate}&facility=${data._id}`);
+            const response = await fetch(`http://localhost:5000/api/check-availability?date=${formattedDate}&facility=${data._id}`);
             if (response.ok) {
                 const result = await response.json();
                 if (result.success && result.data.success) {
