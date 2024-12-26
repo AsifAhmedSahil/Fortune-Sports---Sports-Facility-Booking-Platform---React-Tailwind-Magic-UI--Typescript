@@ -90,7 +90,7 @@ const Footer = () => {
           <div className="mx-auto w-full max-w-screen-xl">
             <div className="px-4 py-6 bg-black dark:bg-gray-700 md:flex md:items-center md:justify-between">
               <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
-                © 2023 <Link to="https://flowbite.com/">Flowbite™</Link>. All Rights
+                © 2025. <Link to="https://flowbite.com/">Asif Ahmed Sahil</Link>. All Rights
                 Reserved.
               </span>
               <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">

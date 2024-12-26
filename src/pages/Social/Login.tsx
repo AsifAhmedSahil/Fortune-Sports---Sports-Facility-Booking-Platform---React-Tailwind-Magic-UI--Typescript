@@ -23,13 +23,33 @@ const Login: React.FC = () => {
   const [login] = useLoginMutation();
 
   // Initialize useForm with default values and validation rules
-  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({
+  const { register, handleSubmit, formState: { errors },reset } = useForm<FormValues>({
     defaultValues: {
       email: '',
       password: '',
     },
     mode: 'onBlur', // or 'onChange'
   });
+
+  const handleSetCredentials = (type: 'admin' | 'user') => {
+    const adminCredentials = {
+      email: 'sahil@asif.com',
+      password: '123456',
+    };
+
+    const userCredentials = {
+      email: '19300@eastdelta.edu.bd',
+      password: '123456',
+    };
+
+    const credentials = type === 'admin' ? adminCredentials : userCredentials;
+
+    // Reset the form with the selected credentials
+    reset(credentials);
+
+    // Submit the form automatically after filling in credentials
+    // handleSubmit(onSubmit)();
+  };
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
@@ -55,8 +75,25 @@ const Login: React.FC = () => {
       {/* Login Form Section */}
       <div className="w-full md:w-1/2 bg-black flex items-center justify-center p-8">
         <div className="w-full max-w-md">
-          <h2 className="text-3xl font-bold mb-6 text-white">Login to Your Account</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <h2 className="text-3xl font-bold mb-6 text-white text-center">Login to Your Account</h2>
+                 {/* Action Buttons */}
+                 <div className="mb-4 flex justify-between">
+              <button
+                type="button"
+                onClick={() => handleSetCredentials('admin')}
+                className="text-white bg-gradient-to-br from-purple-900 to-purple-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              >
+                Admin Login
+              </button>
+              <button
+                type="button"
+                onClick={() => handleSetCredentials('user')}
+                className="text-white bg-gradient-to-br from-purple-900 to-purple-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              >
+                User Login
+              </button>
+            </div>
+          <form onSubmit={handleSubmit(onSubmit)} >
             <div className="mb-4">
               <label htmlFor="email" className="block text-sm font-medium text-white">
                 Email
@@ -64,6 +101,7 @@ const Login: React.FC = () => {
               <input
                 type="email"
                 id="email"
+               
                 {...register('email', { required: 'Email is required' })}
                 className={`mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
                   errors.email ? 'border-red-500' : 'border-gray-300'
@@ -95,6 +133,9 @@ const Login: React.FC = () => {
             >
               Log In
             </button>
+
+            
+
           </form>
           <Link to={"/signup"}>
             <div className="mt-4 text-center">

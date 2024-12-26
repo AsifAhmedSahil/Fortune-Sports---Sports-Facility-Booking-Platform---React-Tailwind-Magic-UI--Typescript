@@ -87,6 +87,12 @@ export const Navbar = () => {
           {/* ********************************Desktop menu navigation ************************************* */}
 
           <nav className=" gap-8 items-center hidden sm:flex">
+          <Link
+              to="/facilities"
+              className="text-opacity-60 text-white hover:text-opacity-100  transition"
+            >
+              Facilities
+            </Link>
             <Link
               to="/about"
               className="text-opacity-60 text-white hover:text-opacity-100  transition"
@@ -99,12 +105,7 @@ export const Navbar = () => {
             >
               Contacts
             </Link>
-            <Link
-              to="/facilities"
-              className="text-opacity-60 text-white hover:text-opacity-100  transition"
-            >
-              Facilities
-            </Link>
+            
             <Link
               to="/faq"
               className="text-opacity-60 text-white hover:text-opacity-100  transition"

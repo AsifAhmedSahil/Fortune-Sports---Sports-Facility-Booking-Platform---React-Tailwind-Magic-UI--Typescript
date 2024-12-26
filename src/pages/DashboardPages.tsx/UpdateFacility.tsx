@@ -12,14 +12,15 @@ const UpdateFacility = () => {
     const [location, setLocation] = useState('');
 
     const { data, isLoading, error } = useGetSingleFacilityQuery(id);
+    
     const [updateFacilities] =useUpdateFacilityMutation() 
 
     useEffect(() => {
         if (data) {
-            setName(data.name || '');
-            setDescription(data.description || '');
-            setPricePerHour(data.pricePerHour || '');
-            setLocation(data.location || '');
+            setName(data.data.name || '');
+            setDescription(data.data.description || '');
+            setPricePerHour(data.data.pricePerHour || '');
+            setLocation(data.data.location || '');
         }
     }, [data]);
 
@@ -116,6 +117,7 @@ const UpdateFacility = () => {
                         type="text"
                         id="name"
                         name="name"
+                        
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
